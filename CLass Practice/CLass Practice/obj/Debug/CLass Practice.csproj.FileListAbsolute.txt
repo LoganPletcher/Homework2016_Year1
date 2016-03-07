@@ -1,0 +1,6 @@
+c:\users\logan.pletcher\documents\visual studio 2015\Projects\CLass Practice\CLass Practice\bin\Debug\CLass Practice.exe.config
+C:\Users\logan.pletcher\documents\visual studio 2015\Projects\CLass Practice\CLass Practice\bin\Debug\CLass Practice.exe
+C:\Users\logan.pletcher\documents\visual studio 2015\Projects\CLass Practice\CLass Practice\bin\Debug\CLass Practice.pdb
+C:\Users\logan.pletcher\documents\visual studio 2015\Projects\CLass Practice\CLass Practice\obj\Debug\CLass Practice.csprojResolveAssemblyReference.cache
+C:\Users\logan.pletcher\documents\visual studio 2015\Projects\CLass Practice\CLass Practice\obj\Debug\CLass Practice.exe
+C:\Users\logan.pletcher\documents\visual studio 2015\Projects\CLass Practice\CLass Practice\obj\Debug\CLass Practice.pdb
