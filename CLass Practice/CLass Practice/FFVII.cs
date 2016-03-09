@@ -16,19 +16,22 @@ public interface IBase<T>
     void Ability1(T enemy);
     void Ability2(T enemy);
     void Ability3(T enemy);
-    bool Stunned
+    int Stunned
     { get; set; }
-    bool DamageOverTime
+    int DamageOverTime
+    { get; set; }
+    int CharacterClass
     { get; set; }
 }
 
 public class Base_Class : IBase<Base_Class>
 {
-    public Random rnd = new Random();
+    public Random rng = new Random();
     private int m_HP;
     private int m_Att;
-    private bool m_S = false;
-    private bool m_DoT = false;
+    private int m_S;
+    private int m_DoT;
+    private int m_CC;
 
     public int Attack
     {
@@ -38,7 +41,7 @@ public class Base_Class : IBase<Base_Class>
         { m_Att = value; }
     }
 
-    public bool DamageOverTime
+    public int DamageOverTime
     {
         get
         { return m_DoT; }
@@ -54,12 +57,20 @@ public class Base_Class : IBase<Base_Class>
         { m_HP = value; }
     }
 
-    public bool Stunned
+    public int Stunned
     {
         get
         { return m_S; }
         set
         { m_S = value; }
+    }
+
+    public int CharacterClass
+    {
+        get
+        { return m_CC; }
+        set
+        { m_CC = value; }
     }
 
     public virtual void Ability1(Base_Class enemy)
@@ -74,27 +85,24 @@ public class Base_Class : IBase<Base_Class>
 
 public class Black_Mage<T> : Base_Class
 {
-    private int m_HP;
-    private int m_Att;
-    private bool m_S = false;
-    private bool m_DoT = false;
-
     private Black_Mage(int h, int a)
     {
         this.Health = h;
         this.Attack = a;
+        this.Stunned = 0;
+        this.DamageOverTime = 0;
     }
 
     public override void Ability1(Base_Class enemy)
     {
         enemy.Health -= this.Attack + 2;
-        enemy.DamageOverTime = true;
+        enemy.DamageOverTime = 2;
     }
 
     public override void Ability2(Base_Class enemy)
     {
         for (int i = 0; i < 3; i++)
-            enemy.Health -= rnd.Next(0,2);
+            enemy.Health -= rng.Next(0,2);
     }
 
     public override void Ability3(Base_Class enemy)
@@ -105,15 +113,12 @@ public class Black_Mage<T> : Base_Class
 
 public class Archer<T> : Base_Class
 {
-    private int m_HP;
-    private int m_Att;
-    private bool m_S = false;
-    private bool m_DoT = false;
-
     private Archer(int h, int a)
     {
         this.Health = h;
         this.Attack = a;
+        this.Stunned = 0;
+        this.DamageOverTime = 0;
     }
 
     public override void Ability1(Base_Class enemy)
@@ -125,12 +130,41 @@ public class Archer<T> : Base_Class
     public override void Ability2(Base_Class enemy)
     {
         enemy.Health -= this.Attack;
-        enemy.Stunned = true;
+        enemy.Stunned = 2;
     }
 
     public override void Ability3(Base_Class enemy)
     {
-        enemy.Health -= this.Attack + 4;
+        enemy.Health -= this.Attack + 6;
+    }
+}
+
+public class Blue_Mage<T> : Base_Class
+{
+    private Blue_Mage(int h, int a)
+    {
+        this.Health = h;
+        this.Attack = a;
+        this.Stunned = 0;
+        this.DamageOverTime = 0;
+    }
+
+    public override void Ability1(Base_Class enemy)
+    {
+        enemy.DamageOverTime = 2;
+        enemy.Stunned = 2;
+    }
+
+    public override void Ability2(Base_Class enemy)
+    {
+        enemy.Health -= (this.Attack + 2);
+        enemy.Stunned = 4;
+    }
+
+    public override void Ability3(Base_Class enemy)
+    {
+        enemy.Health -= this.Attack;
+        enemy.DamageOverTime = 4;
     }
 }
 
