@@ -102,31 +102,53 @@ namespace CLass_Practice
 
     class Program
     {
+
+        enum PlayerStates
+        {
+            init,
+            idle,
+            walk,
+            run,
+        }
+
         static void Main(string[] args)
         {
-            List<Warrior> fighters = new List<Warrior>();
+            Finite_State_Machine FSM = new Finite_State_Machine(PlayerStates.init);
+            //init->idle
+            //idle->walk
+            //walk->run
+            //run->walk
+            //walk->idle
+            FSM.AddState(PlayerStates.init);
+            FSM.AddState(PlayerStates.idle);
+            FSM.AddState(PlayerStates.walk);
+            FSM.AddState(PlayerStates.run);
 
-            for(int i = 1; i <= 4; i++)
-            {
-                Ninja Guy = new Ninja(10, 5, "Student " + i);
-                Duck Matthew = new Duck(4, 1, "Mr Matt Clone " + i);
-                fighters.Add(Guy);
-                fighters.Add(Matthew);
-            }
-            fighters[0].Health = 4;
-            
-            for(int i = 0; i < fighters.Count; i++)
-            {
-                if (i < fighters.Count - 1)
-                    fighters[i].attack(fighters[i + 1]);
-                else
-                    fighters[i].attack(fighters[0]);
-            }
-            foreach ( Warrior w in fighters)
-            {
-                w.SayName();
-            }
+            FSM.info();
             Console.ReadLine();
+            //List<Warrior> fighters = new List<Warrior>();
+
+            //for(int i = 1; i <= 4; i++)
+            //{
+            //    Ninja Guy = new Ninja(10, 5, "Student " + i);
+            //    Duck Matthew = new Duck(4, 1, "Mr Matt Clone " + i);
+            //    fighters.Add(Guy);
+            //    fighters.Add(Matthew);
+            //}
+            //fighters[0].Health = 4;
+
+            //for(int i = 0; i < fighters.Count; i++)
+            //{
+            //    if (i < fighters.Count - 1)
+            //        fighters[i].attack(fighters[i + 1]);
+            //    else
+            //        fighters[i].attack(fighters[0]);
+            //}
+            //foreach ( Warrior w in fighters)
+            //{
+            //    w.SayName();
+            //}
+            //Console.ReadLine();
         }
     }
 
