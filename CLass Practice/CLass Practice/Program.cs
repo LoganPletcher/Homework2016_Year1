@@ -123,8 +123,54 @@ namespace CLass_Practice
             FSM.AddState(PlayerStates.idle);
             FSM.AddState(PlayerStates.walk);
             FSM.AddState(PlayerStates.run);
+            
+            FSM.AddTransition(PlayerStates.init, PlayerStates.idle);
+            FSM.AddTransition(PlayerStates.idle, PlayerStates.walk);
+            FSM.AddTransition(PlayerStates.walk, PlayerStates.run);
+            FSM.AddTransition(PlayerStates.run, PlayerStates.walk);
+            FSM.AddTransition(PlayerStates.walk, PlayerStates.idle);
 
             FSM.info();
+
+            FSM.ChangeStates("init->idle");
+            FSM.ChangeStates("idle->walk");
+            FSM.ChangeStates("idle->run");
+
+            Ninja Pirate = new Ninja(100, 5, "Steve");
+            Ninja Samurai = new Ninja(100, 5, "Will");
+            Random rng = new Random();
+            List<int> DiceRolls = new List<int>();
+            bool ninja2turn = false;
+            bool player1att = false;
+
+            for (int i = 0; i <= 500; i++)
+            {
+                int DiceRoll;
+                DiceRoll = rng.Next(1, 20);
+                DiceRolls.Add(DiceRoll);
+            }
+            for (int i = 0; i <= 500; i++)
+            {
+                if (ninja2turn == false)
+                {
+                    Console.WriteLine
+                        (Pirate.ObjectName + " attacks " + Samurai.ObjectName + " for " + (Pirate.Attack + DiceRolls[i]) + " damage.");
+                    Samurai.Health -= (Pirate.Attack + DiceRolls[i]);
+                    ninja2turn = true;
+                    player1att = true;
+                }
+                if (ninja2turn == true && player1att == false)
+                {
+                    Console.WriteLine
+                        (Samurai.ObjectName + " attacks " + Pirate.ObjectName + " for " + (Samurai.Attack + DiceRolls[i]) + " damage.");
+                    Pirate.Health -= (Samurai.Attack + DiceRolls[i]);
+                    ninja2turn = false;
+                }
+                if (Samurai.Health <= 0 || Pirate.Health <= 0)
+                    break;
+                player1att = false;
+            }
+
             Console.ReadLine();
             //List<Warrior> fighters = new List<Warrior>();
 

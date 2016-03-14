@@ -1,0 +1,9 @@
+c:\users\logan.pletcher\documents\visual studio 2015\Projects\DiceChart\DiceChart\bin\Debug\DiceChart.exe.config
+c:\users\logan.pletcher\documents\visual studio 2015\Projects\DiceChart\DiceChart\bin\Debug\DiceChart.exe
+c:\users\logan.pletcher\documents\visual studio 2015\Projects\DiceChart\DiceChart\bin\Debug\DiceChart.pdb
+c:\users\logan.pletcher\documents\visual studio 2015\Projects\DiceChart\DiceChart\obj\Debug\DiceChart.csprojResolveAssemblyReference.cache
+c:\users\logan.pletcher\documents\visual studio 2015\Projects\DiceChart\DiceChart\obj\Debug\DiceChart.Form1.resources
+c:\users\logan.pletcher\documents\visual studio 2015\Projects\DiceChart\DiceChart\obj\Debug\DiceChart.Properties.Resources.resources
+c:\users\logan.pletcher\documents\visual studio 2015\Projects\DiceChart\DiceChart\obj\Debug\DiceChart.csproj.GenerateResource.Cache
+c:\users\logan.pletcher\documents\visual studio 2015\Projects\DiceChart\DiceChart\obj\Debug\DiceChart.exe
+c:\users\logan.pletcher\documents\visual studio 2015\Projects\DiceChart\DiceChart\obj\Debug\DiceChart.pdb

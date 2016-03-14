@@ -13,11 +13,17 @@ namespace CLass_Practice
     public class Finite_State_Machine
     {
 
-        class Transition
+        public class Transition
         {
-            Transition()
+            public string m_TransitionName;
+            public Enum m_firstState;
+            public Enum m_secondState;
+            public Transition(Enum S1, Enum S2)
             {
-
+                m_firstState = S1;
+                m_secondState = S2;
+                m_TransitionName = (S1 + "->" + S2);
+                Console.WriteLine("Transition " + m_TransitionName + " created.");
             }
         }
         Enum m_currentstate;
@@ -27,6 +33,32 @@ namespace CLass_Practice
         {
             m_currentstate = cs;
             m_States = new List<Enum>();
+            m_Transitions = new List<Transition>();
+        }
+
+        public bool ChangeStates(string t)
+        {
+            bool startingState = false;
+            bool validTransition = false;
+            foreach(Transition T in m_Transitions)
+            {
+                if (T.m_TransitionName == t)
+                {
+                    Console.WriteLine(T.m_TransitionName + " " + t);
+                    validTransition = true;
+                }
+                if (m_currentstate == T.m_firstState)
+                    startingState = true;
+                if (((validTransition == true) && (startingState == true)))
+                {
+                    Console.WriteLine
+                        ("Transition is valid. Changing current state from " + m_currentstate + " to " + T.m_secondState);
+                    m_currentstate = T.m_secondState;
+                    return true;
+                }
+            }
+            Console.WriteLine("No such transition exists. Make sure there are no typos and that the transition exists.");
+            return false;
         }
 
         public bool AddState (Enum s)
@@ -59,6 +91,14 @@ namespace CLass_Practice
                     ("State " + count + ": " + s);
                 count++;
             }
+            count = 0;
+            Console.WriteLine("The Finite State Machine contains the following transitions: ");
+            foreach (Transition t in m_Transitions)
+            {
+                Console.WriteLine
+                    ("Transition " + count + ": " + t.m_TransitionName);
+                count++;
+            }
             Console.WriteLine("The current state is " + m_currentstate);
             return count;
         }
@@ -68,15 +108,17 @@ namespace CLass_Practice
         //
         //
         //
-        public bool AddTransition(string transition)
+        public bool AddTransition(Enum f, Enum t)
         {
-            Enum from = null;
-            Enum to = null;
+            Enum from = f;
+            Enum to = t;
+            Transition transition = new Transition(f, t);
+            m_Transitions.Add(transition);
             return true;
         }
 
+        private List<Transition> m_Transitions;
         Dictionary<Enum, List<Transition>> TransitionTable;
-
     }
 
 }
