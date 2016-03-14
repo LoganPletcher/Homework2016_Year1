@@ -44,20 +44,21 @@ namespace CLass_Practice
             {
                 if (T.m_TransitionName == t)
                 {
-                    Console.WriteLine(T.m_TransitionName + " " + t);
                     validTransition = true;
                 }
-                if (m_currentstate == T.m_firstState)
+                if (Convert.ToString(m_currentstate) == Convert.ToString(T.m_firstState))
+                {
                     startingState = true;
+                }
                 if (((validTransition == true) && (startingState == true)))
                 {
                     Console.WriteLine
-                        ("Transition is valid. Changing current state from " + m_currentstate + " to " + T.m_secondState);
+                        ("Transition is valid. Changing current state from " + m_currentstate + " to " + T.m_secondState + ".");
                     m_currentstate = T.m_secondState;
                     return true;
                 }
             }
-            Console.WriteLine("No such transition exists. Make sure there are no typos and that the transition exists.");
+            Console.WriteLine("No such transition exists. Make sure there are no typos and that the transition and states exist.");
             return false;
         }
 
