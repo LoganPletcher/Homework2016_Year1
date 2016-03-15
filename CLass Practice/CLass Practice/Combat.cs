@@ -8,6 +8,12 @@ namespace CLass_Practice
 {
     class Combat
     {
+
+        static void combat(string[] arg)
+        {
+            
+        }
+
     }
 
     public class Finite_State_Machine
@@ -15,15 +21,12 @@ namespace CLass_Practice
 
         public class Transition
         {
-            public string m_TransitionName;
             public Enum m_firstState;
             public Enum m_secondState;
             public Transition(Enum S1, Enum S2)
             {
                 m_firstState = S1;
                 m_secondState = S2;
-                m_TransitionName = (S1 + "->" + S2);
-                Console.WriteLine("Transition " + m_TransitionName + " created.");
             }
         }
         Enum m_currentstate;
@@ -33,32 +36,36 @@ namespace CLass_Practice
         {
             m_currentstate = cs;
             m_States = new List<Enum>();
-            m_Transitions = new List<Transition>();
+            //m_Transitions = new List<Transition>();
         }
 
         public bool ChangeStates(string t)
         {
             bool startingState = false;
             bool validTransition = false;
-            foreach(Transition T in m_Transitions)
+            foreach(KeyValuePair<string, Transition> entry in TransitionTable)
             {
-                if (T.m_TransitionName == t)
+                if (entry.Key == t)
                 {
                     validTransition = true;
                 }
-                if (Convert.ToString(m_currentstate) == Convert.ToString(T.m_firstState))
+                else
+                    validTransition = false;
+                if (Convert.ToString(m_currentstate) == Convert.ToString(entry.Value.m_firstState))
                 {
                     startingState = true;
                 }
+                else
+                    startingState = false;
                 if (((validTransition == true) && (startingState == true)))
                 {
                     Console.WriteLine
-                        ("Transition is valid. Changing current state from " + m_currentstate + " to " + T.m_secondState + ".");
-                    m_currentstate = T.m_secondState;
+                        ("Transition is valid. Changing current state from " + m_currentstate + " to " + entry.Value.m_secondState + ".");
+                    m_currentstate = entry.Value.m_secondState;
                     return true;
                 }
             }
-            Console.WriteLine("No such transition exists. Make sure there are no typos and that the transition and states exist.");
+            Console.WriteLine("No such transition exists or the transition is not valid. Make sure there are no typos, that the transition and states exist, and that the current state matches the first state of the transition.");
             return false;
         }
 
@@ -94,10 +101,10 @@ namespace CLass_Practice
             }
             count = 0;
             Console.WriteLine("The Finite State Machine contains the following transitions: ");
-            foreach (Transition t in m_Transitions)
+            foreach (KeyValuePair<string, Transition> entry in TransitionTable)
             {
                 Console.WriteLine
-                    ("Transition " + count + ": " + t.m_TransitionName);
+                    ("Transition " + count + ": " + entry.Key);
                 count++;
             }
             Console.WriteLine("The current state is " + m_currentstate);
@@ -114,12 +121,13 @@ namespace CLass_Practice
             Enum from = f;
             Enum to = t;
             Transition transition = new Transition(f, t);
-            m_Transitions.Add(transition);
+            TransitionTable.Add((Convert.ToString(f) + "->" + Convert.ToString(t)), transition);
+            Console.WriteLine("Transition " + Convert.ToString(f) + "->" + Convert.ToString(t) + " created.");
             return true;
         }
 
-        private List<Transition> m_Transitions;
-        Dictionary<Enum, List<Transition>> TransitionTable;
+        //private List<Transition> m_Transitions;
+        Dictionary<string, Transition> TransitionTable = new Dictionary<string, Transition>();
     }
 
 }

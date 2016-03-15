@@ -106,35 +106,36 @@ namespace CLass_Practice
         enum PlayerStates
         {
             init,
-            idle,
-            walk,
-            run,
+            teamAturn,
+            teamBturn,
+            victory,
         }
 
         static void Main(string[] args)
         {
             Finite_State_Machine FSM = new Finite_State_Machine(PlayerStates.init);
+            Combat battle = new Combat();
             //init->idle
             //idle->walk
             //walk->run
             //run->walk
             //walk->idle
             FSM.AddState(PlayerStates.init);
-            FSM.AddState(PlayerStates.idle);
-            FSM.AddState(PlayerStates.walk);
-            FSM.AddState(PlayerStates.run);
+            FSM.AddState(PlayerStates.teamAturn);
+            FSM.AddState(PlayerStates.teamBturn);
+            FSM.AddState(PlayerStates.victory);
             
-            FSM.AddTransition(PlayerStates.init, PlayerStates.idle);
-            FSM.AddTransition(PlayerStates.idle, PlayerStates.walk);
-            FSM.AddTransition(PlayerStates.walk, PlayerStates.run);
-            FSM.AddTransition(PlayerStates.run, PlayerStates.walk);
-            FSM.AddTransition(PlayerStates.walk, PlayerStates.idle);
+            FSM.AddTransition(PlayerStates.init, PlayerStates.teamAturn);
+            FSM.AddTransition(PlayerStates.teamAturn, PlayerStates.teamBturn);
+            FSM.AddTransition(PlayerStates.teamBturn, PlayerStates.teamAturn);
+            FSM.AddTransition(PlayerStates.teamAturn, PlayerStates.victory);
+            FSM.AddTransition(PlayerStates.teamBturn, PlayerStates.victory);
 
             FSM.info();
 
-            FSM.ChangeStates("init->idle");
-            FSM.ChangeStates("idle->walk");
-            FSM.ChangeStates("idle->run");
+            FSM.ChangeStates("init->teamAturn");
+            FSM.ChangeStates("teamAturn->teamBturn");
+            FSM.ChangeStates("teamAturn->victory");
 
             FSM.info();
 
