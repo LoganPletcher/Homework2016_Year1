@@ -94,7 +94,7 @@ public class Base_Class : IBase<Base_Class>
     {    }
 }
 
-public class Black_Mage<T> : Base_Class
+public class Black_Mage : Base_Class
 {
     private Black_Mage(string n, int h, int a)
     {
@@ -132,7 +132,7 @@ public class Black_Mage<T> : Base_Class
     }
 }
 
-public class Archer<T> : Base_Class
+public class Archer : Base_Class
 {
     private Archer(string n, int h, int a)
     {
@@ -165,7 +165,7 @@ public class Archer<T> : Base_Class
     }
 }
 
-public class Blue_Mage<T> : Base_Class
+public class Blue_Mage : Base_Class
 {
     private Blue_Mage(string n, int h, int a)
     {
@@ -196,7 +196,7 @@ public class Blue_Mage<T> : Base_Class
     }
 }
 
-public class Fighter<T> : Base_Class
+public class Fighter : Base_Class
 {
     private Fighter(string n, int h, int a)
     {
@@ -225,7 +225,7 @@ public class Fighter<T> : Base_Class
     }
 }
 
-public class Paladin<T> : Base_Class
+public class Paladin : Base_Class
 {
     private Paladin(string n, int h, int a)
     {
@@ -255,7 +255,7 @@ public class Paladin<T> : Base_Class
     }
 }
 
-public class White_Mage<T> : Base_Class
+public class White_Mage : Base_Class
 {
     private White_Mage(string n, int h, int a)
     {

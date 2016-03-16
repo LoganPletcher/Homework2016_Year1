@@ -115,11 +115,6 @@ namespace CLass_Practice
         {
             Finite_State_Machine FSM = new Finite_State_Machine(PlayerStates.init);
             Combat battle = new Combat();
-            //init->idle
-            //idle->walk
-            //walk->run
-            //run->walk
-            //walk->idle
             FSM.AddState(PlayerStates.init);
             FSM.AddState(PlayerStates.teamAturn);
             FSM.AddState(PlayerStates.teamBturn);
@@ -136,6 +131,8 @@ namespace CLass_Practice
             FSM.ChangeStates("init->teamAturn");
             FSM.ChangeStates("teamAturn->teamBturn");
             FSM.ChangeStates("teamAturn->victory");
+
+            
 
             FSM.info();
 
