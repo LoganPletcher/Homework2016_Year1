@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 public interface IAttack<T>
 {
@@ -111,8 +112,43 @@ namespace CLass_Practice
             victory,
         }
 
+        static bool init ()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new LoadingScene());
+            Random rng = new Random();
+            List<Base_Class> teamA = new List<Base_Class>();
+            for (int i = 0; i < 3; i++)
+            {
+                int Cclass = rng.Next(1, 7);
+                if (Cclass == 1) { Black_Mage Character = new Black_Mage("Character" + i, 1); teamA.Add(Character); }
+                else if (Cclass == 2) { Archer Character = new Archer("Character" + i, 1); teamA.Add(Character); }
+                else if (Cclass == 3) { Blue_Mage Character = new Blue_Mage("Character" + i, 1); teamA.Add(Character); }
+                else if (Cclass == 4) { Fighter Character = new Fighter("Character" + i, 1); teamA.Add(Character); }
+                else if (Cclass == 5) { Paladin Character = new Paladin("Character" + i, 1); teamA.Add(Character); }
+                else if (Cclass == 6) { White_Mage Character = new White_Mage("Character" + i, 1); teamA.Add(Character); }
+            }
+            List<Base_Class> teamB = new List<Base_Class>();
+            for (int i = 0; i < 3; i++)
+            {
+                int Cclass = rng.Next(1, 7);
+                if (Cclass == 1) { Black_Mage Enemy = new Black_Mage("Enemy", 1); teamB.Add(Enemy); }
+                else if (Cclass == 2) { Archer Enemy = new Archer("Enemy" + i, 1); teamB.Add(Enemy); }
+                else if (Cclass == 3) { Blue_Mage Enemy = new Blue_Mage("Enemy" + i, 1); teamB.Add(Enemy); }
+                else if (Cclass == 4) { Fighter Enemy = new Fighter("Enemy" + i, 1); teamB.Add(Enemy); }
+                else if (Cclass == 5) { Paladin Enemy = new Paladin("Enemy" + i, 1); teamB.Add(Enemy); }
+                else if (Cclass == 6) { White_Mage Enemy = new White_Mage("Enemy" + i, 1); teamB.Add(Enemy); }
+            }
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new BattleScene(teamA, teamB));
+            return false;
+        }
+
         static void Main(string[] args)
         {
+            
             Finite_State_Machine FSM = new Finite_State_Machine(PlayerStates.init);
             Combat battle = new Combat();
             FSM.AddState(PlayerStates.init);
@@ -125,16 +161,13 @@ namespace CLass_Practice
             FSM.AddTransition(PlayerStates.teamBturn, PlayerStates.teamAturn);
             FSM.AddTransition(PlayerStates.teamAturn, PlayerStates.victory);
             FSM.AddTransition(PlayerStates.teamBturn, PlayerStates.victory);
-
             FSM.info();
 
-            FSM.ChangeStates("init->teamAturn");
-            FSM.ChangeStates("teamAturn->teamBturn");
-            FSM.ChangeStates("teamAturn->victory");
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new BattleScene());
 
-            
-
-            FSM.info();
+            init();
 
             Console.ReadLine();
             //List<Warrior> fighters = new List<Warrior>();

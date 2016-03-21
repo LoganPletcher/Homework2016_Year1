@@ -26,7 +26,18 @@ public interface IBase<T>
     { get; set; }
 }
 
-public class Base_Class : IBase<Base_Class>
+public interface ILevelingSystem<T>
+{
+    int Level
+    { get; set; }
+    int ExperiencePoints
+    { get; set; }
+    int ExperiencetoLevelUp
+    { get; set; }
+    void LevelingUp();
+}
+
+public class Base_Class : IBase<Base_Class>, ILevelingSystem<Base_Class>
 {
     public Random rng = new Random();
     private string m_Name;
@@ -35,6 +46,9 @@ public class Base_Class : IBase<Base_Class>
     private int m_S;
     private int m_DoT;
     private int m_CC;
+    private int m_LVL;
+    private int m_XP;
+    private int m_MaxXP;
 
     public string Name
     {
@@ -43,7 +57,7 @@ public class Base_Class : IBase<Base_Class>
         set
         { m_Name = value; }
     }
-
+    
     public int Attack
     {
         get
@@ -92,15 +106,47 @@ public class Base_Class : IBase<Base_Class>
 
     public virtual void Ability3(Base_Class enemy)
     {    }
+    
+    public int Level
+    {
+        get
+        { return m_LVL; }
+        set
+        { m_LVL = value; }
+    }
+
+    public int ExperiencePoints
+    {
+        get
+        { return m_XP; }
+        set
+        { m_XP = value; }
+    }
+
+    public int ExperiencetoLevelUp
+    {
+        get
+        { return m_MaxXP; }
+        set
+        { m_MaxXP = value; }
+    }
+
+    public virtual void LevelingUp()
+    {
+        ExperiencePoints -= ExperiencetoLevelUp;
+        Level++;
+        ExperiencetoLevelUp *= Level;
+    }
 }
 
 public class Black_Mage : Base_Class
 {
-    private Black_Mage(string n, int h, int a)
+    public Black_Mage(string n, int l)
     {
         this.Name = n;
-        this.Health = h;
-        this.Attack = a;
+        this.Level = l;
+        this.Health = 20 + (l * 5);
+        this.Attack = 3 + (l * 1);
         this.Stunned = 0;
         this.DamageOverTime = 0;
         this.CharacterClass = 1;
@@ -111,7 +157,7 @@ public class Black_Mage : Base_Class
         enemy.Health -= this.Attack + 2;
         Console.WriteLine(this.Name + " dealt " + (this.Attack + 2) + " magic damage to " + enemy.Name);
         enemy.DamageOverTime = 2;
-        Console.WriteLine(this.Name + " poisoned " + "for 2 rounds with dark magic.");
+        Console.WriteLine(this.Name + " poisoned " + enemy.Name + "for 2 rounds with dark magic.");
 
     }
 
@@ -130,15 +176,23 @@ public class Black_Mage : Base_Class
         enemy.Health -= this.Attack + 4;
         Console.WriteLine(enemy.Name + " took " + (this.Attack + 4) + " magic damage.");
     }
+
+    public override void LevelingUp()
+    {
+        base.LevelingUp();
+        this.Health += 5;
+        this.Attack += 1;
+    }
 }
 
 public class Archer : Base_Class
 {
-    private Archer(string n, int h, int a)
+    public Archer(string n, int l)
     {
         this.Name = n;
-        this.Health = h;
-        this.Attack = a;
+        this.Level = l;
+        this.Health = 20 + (l * 6);
+        this.Attack = 3 + (l * 2);
         this.Stunned = 0;
         this.DamageOverTime = 0;
         this.CharacterClass = 2;
@@ -163,15 +217,23 @@ public class Archer : Base_Class
     {
         enemy.Health -= this.Attack + 6;
     }
+
+    public override void LevelingUp()
+    {
+        base.LevelingUp();
+        this.Health += 6;
+        this.Attack += 2;
+    }
 }
 
 public class Blue_Mage : Base_Class
 {
-    private Blue_Mage(string n, int h, int a)
+    public Blue_Mage(string n, int l)
     {
         this.Name = n;
-        this.Health = h;
-        this.Attack = a;
+        this.Level = l;
+        this.Health = 20 + (l * 5);
+        this.Attack = 3 + (l * 1);
         this.Stunned = 0;
         this.DamageOverTime = 0;
         this.CharacterClass = 3;
@@ -194,15 +256,23 @@ public class Blue_Mage : Base_Class
         enemy.Health -= this.Attack;
         enemy.DamageOverTime = 4;
     }
+
+    public override void LevelingUp()
+    {
+        base.LevelingUp();
+        this.Health += 5;
+        this.Attack += 1;
+    }
 }
 
 public class Fighter : Base_Class
 {
-    private Fighter(string n, int h, int a)
+    public Fighter(string n, int l)
     {
         this.Name = n;
-        this.Health = h;
-        this.Attack = a;
+        this.Level = l;
+        this.Health = 25 + (l * 7);
+        this.Attack = 6 + (l * 2);
         this.Stunned = 0;
         this.DamageOverTime = 0;
         this.CharacterClass = 4;
@@ -223,15 +293,22 @@ public class Fighter : Base_Class
     {
         enemy.Health -= (this.Attack + this.Attack);
     }
+
+    public override void LevelingUp()
+    {
+        base.LevelingUp();
+        this.Health += 7;
+        this.Attack += 2;
+    }
 }
 
 public class Paladin : Base_Class
 {
-    private Paladin(string n, int h, int a)
+    public Paladin(string n, int l)
     {
         this.Name = n;
-        this.Health = h;
-        this.Attack = a;
+        this.Health = 25 + (l * 7);
+        this.Attack = 6 + (l * 2);
         this.Stunned = 0;
         this.DamageOverTime = 0;
         this.CharacterClass = 5;
@@ -253,15 +330,22 @@ public class Paladin : Base_Class
     {
         enemy.Health -= (this.Attack + 6);
     }
+
+    public override void LevelingUp()
+    {
+        base.LevelingUp();
+        this.Health += 7;
+        this.Attack += 2;
+    }
 }
 
 public class White_Mage : Base_Class
 {
-    private White_Mage(string n, int h, int a)
+    public White_Mage(string n, int l)
     {
         this.Name = n;
-        this.Health = h;
-        this.Attack = a;
+        this.Health = 25 + (l * 5);
+        this.Attack = 2 + (l * 1);
         this.Stunned = 0;
         this.DamageOverTime = 0;
         this.CharacterClass = 6;
@@ -280,6 +364,13 @@ public class White_Mage : Base_Class
     public override void Ability3(Base_Class enemy)
     {
         enemy.DamageOverTime = 0;
+    }
+
+    public override void LevelingUp()
+    {
+        base.LevelingUp();
+        this.Health += 5;
+        this.Attack += 1;
     }
 }
 

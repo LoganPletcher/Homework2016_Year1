@@ -117,44 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Archer1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\character_images\archer1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Archer2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\character_images\archer2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Black_Mage1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\character_images\black_mage1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Black_Mage2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\character_images\black_mage2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Blue_Mage1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\character_images\blue_mage1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Blue_Mage2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\character_images\blue_mage2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fire_49" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fire-49.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Paladin1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\character_images\paladin1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Paladin2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\character_images\paladin2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Warrior1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\character_images\warrior1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Warrior2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\character_images\warrior2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="White_Mage1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\character_images\white_mage1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="White_Mage2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\character_images\white_mage2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>

@@ -28,43 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.teamAcharacter_2 = new System.Windows.Forms.PictureBox();
+            this.teamAcharacter_3 = new System.Windows.Forms.PictureBox();
+            this.teamBcharacter_3 = new System.Windows.Forms.PictureBox();
+            this.teamBcharacter_2 = new System.Windows.Forms.PictureBox();
+            this.teamBcharacter_1 = new System.Windows.Forms.PictureBox();
+            this.teamAcharacter_1 = new System.Windows.Forms.PictureBox();
+            this.BackGround = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.teamAcharacter_2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teamAcharacter_3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teamBcharacter_3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teamBcharacter_2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teamBcharacter_1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teamAcharacter_1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BackGround)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Green;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1790, 826);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Green;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox2.Location = new System.Drawing.Point(228, 28);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(291, 321);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
             // 
             // button1
             // 
@@ -93,95 +75,124 @@
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // pictureBox6
+            // richTextBox1
             // 
-            this.pictureBox6.BackColor = System.Drawing.Color.Green;
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox6.Location = new System.Drawing.Point(1303, 28);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(291, 321);
-            this.pictureBox6.TabIndex = 11;
-            this.pictureBox6.TabStop = false;
+            this.richTextBox1.Location = new System.Drawing.Point(12, 844);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(855, 82);
+            this.richTextBox1.TabIndex = 16;
+            this.richTextBox1.Text = "";
             // 
-            // pictureBox3
+            // teamAcharacter_2
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Green;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox3.Location = new System.Drawing.Point(1119, 415);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(291, 321);
-            this.pictureBox3.TabIndex = 12;
-            this.pictureBox3.TabStop = false;
+            this.teamAcharacter_2.BackColor = System.Drawing.Color.Green;
+            this.teamAcharacter_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.teamAcharacter_2.Location = new System.Drawing.Point(430, 415);
+            this.teamAcharacter_2.Name = "teamAcharacter_2";
+            this.teamAcharacter_2.Size = new System.Drawing.Size(291, 321);
+            this.teamAcharacter_2.TabIndex = 15;
+            this.teamAcharacter_2.TabStop = false;
             // 
-            // pictureBox4
+            // teamAcharacter_3
             // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Green;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox4.Location = new System.Drawing.Point(1487, 415);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(291, 321);
-            this.pictureBox4.TabIndex = 13;
-            this.pictureBox4.TabStop = false;
+            this.teamAcharacter_3.BackColor = System.Drawing.Color.Green;
+            this.teamAcharacter_3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.teamAcharacter_3.Location = new System.Drawing.Point(42, 415);
+            this.teamAcharacter_3.Name = "teamAcharacter_3";
+            this.teamAcharacter_3.Size = new System.Drawing.Size(291, 321);
+            this.teamAcharacter_3.TabIndex = 14;
+            this.teamAcharacter_3.TabStop = false;
             // 
-            // pictureBox5
+            // teamBcharacter_3
             // 
-            this.pictureBox5.BackColor = System.Drawing.Color.Green;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox5.Location = new System.Drawing.Point(42, 415);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(291, 321);
-            this.pictureBox5.TabIndex = 14;
-            this.pictureBox5.TabStop = false;
+            this.teamBcharacter_3.BackColor = System.Drawing.Color.Green;
+            this.teamBcharacter_3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.teamBcharacter_3.Location = new System.Drawing.Point(1487, 415);
+            this.teamBcharacter_3.Name = "teamBcharacter_3";
+            this.teamBcharacter_3.Size = new System.Drawing.Size(291, 321);
+            this.teamBcharacter_3.TabIndex = 13;
+            this.teamBcharacter_3.TabStop = false;
             // 
-            // pictureBox7
+            // teamBcharacter_2
             // 
-            this.pictureBox7.BackColor = System.Drawing.Color.Green;
-            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox7.Location = new System.Drawing.Point(430, 415);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(291, 321);
-            this.pictureBox7.TabIndex = 15;
-            this.pictureBox7.TabStop = false;
+            this.teamBcharacter_2.BackColor = System.Drawing.Color.Green;
+            this.teamBcharacter_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.teamBcharacter_2.Location = new System.Drawing.Point(1119, 415);
+            this.teamBcharacter_2.Name = "teamBcharacter_2";
+            this.teamBcharacter_2.Size = new System.Drawing.Size(291, 321);
+            this.teamBcharacter_2.TabIndex = 12;
+            this.teamBcharacter_2.TabStop = false;
+            // 
+            // teamBcharacter_1
+            // 
+            this.teamBcharacter_1.BackColor = System.Drawing.Color.Green;
+            this.teamBcharacter_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.teamBcharacter_1.Location = new System.Drawing.Point(1303, 28);
+            this.teamBcharacter_1.Name = "teamBcharacter_1";
+            this.teamBcharacter_1.Size = new System.Drawing.Size(291, 321);
+            this.teamBcharacter_1.TabIndex = 11;
+            this.teamBcharacter_1.TabStop = false;
+            // 
+            // teamAcharacter_1
+            // 
+            this.teamAcharacter_1.BackColor = System.Drawing.Color.Green;
+            this.teamAcharacter_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.teamAcharacter_1.Location = new System.Drawing.Point(228, 28);
+            this.teamAcharacter_1.Name = "teamAcharacter_1";
+            this.teamAcharacter_1.Size = new System.Drawing.Size(291, 321);
+            this.teamAcharacter_1.TabIndex = 1;
+            this.teamAcharacter_1.TabStop = false;
+            // 
+            // BackGround
+            // 
+            this.BackGround.BackColor = System.Drawing.Color.Green;
+            this.BackGround.Location = new System.Drawing.Point(12, 12);
+            this.BackGround.Name = "BackGround";
+            this.BackGround.Size = new System.Drawing.Size(1790, 826);
+            this.BackGround.TabIndex = 0;
+            this.BackGround.TabStop = false;
             // 
             // BattleScene
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1814, 932);
-            this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox6);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.teamAcharacter_2);
+            this.Controls.Add(this.teamAcharacter_3);
+            this.Controls.Add(this.teamBcharacter_3);
+            this.Controls.Add(this.teamBcharacter_2);
+            this.Controls.Add(this.teamBcharacter_1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.teamAcharacter_1);
+            this.Controls.Add(this.BackGround);
             this.Name = "BattleScene";
             this.Text = "BattleScene";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teamAcharacter_2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teamAcharacter_3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teamBcharacter_3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teamBcharacter_2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teamBcharacter_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teamAcharacter_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BackGround)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox BackGround;
+        private System.Windows.Forms.PictureBox teamAcharacter_1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox teamBcharacter_1;
+        private System.Windows.Forms.PictureBox teamBcharacter_2;
+        private System.Windows.Forms.PictureBox teamBcharacter_3;
+        private System.Windows.Forms.PictureBox teamAcharacter_3;
+        private System.Windows.Forms.PictureBox teamAcharacter_2;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

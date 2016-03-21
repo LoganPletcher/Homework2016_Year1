@@ -53,6 +53,12 @@
     </Compile>
     <Compile Include="Combat.cs" />
     <Compile Include="FFVII.cs" />
+    <Compile Include="LoadingScene.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadingScene.Designer.cs">
+      <DependentUpon>LoadingScene.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -68,10 +74,53 @@
     <EmbeddedResource Include="BattleScene.resx">
       <DependentUpon>BattleScene.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LoadingScene.resx">
+      <DependentUpon>LoadingScene.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Character_Images\Archer1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Character_Images\Archer2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Character_Images\Black_Mage1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Character_Images\Black_Mage2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Character_Images\Blue_Mage1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Character_Images\Blue_Mage2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Character_Images\Paladin1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Character_Images\Paladin2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Character_Images\Warrior1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Character_Images\Warrior2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Character_Images\White_Mage1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Character_Images\White_Mage2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fire-49.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
