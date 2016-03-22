@@ -25,13 +25,15 @@ namespace CLass_Practice
 
         private void Yes_Click(object sender, EventArgs e)
         {
-            ofd.ShowDialog();
-            Fighter Character1 = new Fighter("Logan", 3);
-            PlayerTeam.Add(Character1);
-            Blue_Mage Character2 = new Blue_Mage("Daniel", 3);
-            PlayerTeam.Add(Character2);
-            White_Mage Character3 = new White_Mage("Erik", 3);
-            PlayerTeam.Add(Character3);
+            Save_and_Load<List<Base_Class>> sl = new Save_and_Load<List<Base_Class>>();
+            //ofd.ShowDialog();
+            List<Base_Class> LoadedTeam = sl.Load("PlayerTeam1");
+            //Fighter Character1 = new Fighter("Logan", 3);
+            PlayerTeam.Add(LoadedTeam[0]);
+            //Blue_Mage Character2 = new Blue_Mage("Daniel", 3);
+            PlayerTeam.Add(LoadedTeam[1]);
+            //White_Mage Character3 = new White_Mage("Erik", 3);
+            PlayerTeam.Add(LoadedTeam[2]);
             this.Close();
         }
 

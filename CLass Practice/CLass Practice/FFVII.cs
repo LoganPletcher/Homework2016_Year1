@@ -140,6 +140,7 @@ public class Base_Class : IBase<Base_Class>, ILevelingSystem<Base_Class>
     }
 }
 
+[Serializable()]
 public class Black_Mage : Base_Class
 {
     public Black_Mage(string n, int l)
@@ -186,6 +187,7 @@ public class Black_Mage : Base_Class
     }
 }
 
+[Serializable()]
 public class Archer : Base_Class
 {
     public Archer(string n, int l)
@@ -227,6 +229,7 @@ public class Archer : Base_Class
     }
 }
 
+[Serializable()]
 public class Blue_Mage : Base_Class
 {
     public Blue_Mage(string n, int l)
@@ -266,6 +269,7 @@ public class Blue_Mage : Base_Class
     }
 }
 
+[Serializable()]
 public class Fighter : Base_Class
 {
     public Fighter(string n, int l)
@@ -303,6 +307,7 @@ public class Fighter : Base_Class
     }
 }
 
+[Serializable()]
 public class Paladin : Base_Class
 {
     public Paladin(string n, int l)
@@ -340,6 +345,7 @@ public class Paladin : Base_Class
     }
 }
 
+[Serializable()]
 public class White_Mage : Base_Class
 {
     public White_Mage(string n, int l)

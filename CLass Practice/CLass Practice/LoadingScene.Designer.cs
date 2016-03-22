@@ -31,8 +31,6 @@
             this.Yes = new System.Windows.Forms.Button();
             this.No = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Yes
@@ -75,22 +73,6 @@
             this.textBox1.TabIndex = 2;
             this.textBox1.Text = "Load an existing party?";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(77, 82);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(236, 126);
-            this.textBox2.TabIndex = 3;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(189, 301);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(234, 168);
-            this.textBox3.TabIndex = 4;
-            // 
             // LoadingScene
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -98,8 +80,6 @@
             this.BackColor = System.Drawing.Color.Red;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1069, 542);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.No);
             this.Controls.Add(this.Yes);
@@ -116,7 +96,5 @@
         private System.Windows.Forms.Button Yes;
         private System.Windows.Forms.Button No;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
     }
 }

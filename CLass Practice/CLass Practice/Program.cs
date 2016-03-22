@@ -10,6 +10,7 @@ namespace CLass_Practice
 {
     class Program
     {
+
         enum PlayerStates
         {
             init,
@@ -20,6 +21,7 @@ namespace CLass_Practice
 
         static bool init ()
         {
+            Save_and_Load<List<Base_Class>> sl = new Save_and_Load<List<Base_Class>>();
             bool TeamABuilt = false;
             List<Base_Class> teamA = new List<Base_Class>();
             Application.EnableVisualStyles();
@@ -40,6 +42,7 @@ namespace CLass_Practice
                     else if (Cclass == 5) { Paladin Character = new Paladin("Character" + i, 1); teamA.Add(Character); }
                     else if (Cclass == 6) { White_Mage Character = new White_Mage("Character" + i, 1); teamA.Add(Character); }
                 }
+                sl.Save("PlayerTeam", teamA);
             }
             List<Base_Class> teamB = new List<Base_Class>();
             for (int i = 0; i < 3; i++)
@@ -61,8 +64,6 @@ namespace CLass_Practice
         [STAThread]
         static void Main(string[] args)
         {
-           
-            BinaryFormatter BF = new BinaryFormatter();
             Finite_State_Machine FSM = new Finite_State_Machine(PlayerStates.init);
             Combat battle = new Combat();
             FSM.AddState(PlayerStates.init);
