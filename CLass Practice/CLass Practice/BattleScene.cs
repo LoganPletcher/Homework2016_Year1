@@ -12,6 +12,9 @@ namespace CLass_Practice
 {
     public partial class BattleScene : Form
     {
+
+
+
         public BattleScene(List<Base_Class> teamA, List<Base_Class> teamB)
         {
             

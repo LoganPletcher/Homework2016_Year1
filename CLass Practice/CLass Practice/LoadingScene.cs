@@ -12,8 +12,12 @@ namespace CLass_Practice
 {
     public partial class LoadingScene : Form
     {
-        public LoadingScene()
+        
+        List<Base_Class> PlayerTeam = new List<Base_Class>();
+
+        public LoadingScene(List<Base_Class> PT)
         {
+            PlayerTeam = PT;
             InitializeComponent();
         }
 
@@ -22,11 +26,18 @@ namespace CLass_Practice
         private void Yes_Click(object sender, EventArgs e)
         {
             ofd.ShowDialog();
+            Fighter Character1 = new Fighter("Logan", 3);
+            PlayerTeam.Add(Character1);
+            Blue_Mage Character2 = new Blue_Mage("Daniel", 3);
+            PlayerTeam.Add(Character2);
+            White_Mage Character3 = new White_Mage("Erik", 3);
+            PlayerTeam.Add(Character3);
+            this.Close();
         }
 
         private void No_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void LoadingScene_Load(object sender, EventArgs e)

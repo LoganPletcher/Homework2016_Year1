@@ -4,106 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-public interface IAttack<T>
-{
-    void attack(T enemy);
-}
-
-public interface IStats
-{
-    float Health
-    { get;set; }
-    float Attack
-    { get;set; }
-    string ObjectName
-    { get;set; }
-}
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace CLass_Practice
 {
-    class Warrior : IAttack<Warrior>, IStats
-    {
-        private float m_HP;
-        private float m_Att;
-        private string m_Name;
-
-        public float Health
-        {
-            get
-            { return m_HP; }
-            set
-            { m_HP = value; }
-        }
-
-        public float Attack
-        {
-            get
-            { return m_Att; }
-            set
-            { m_Att = value; }
-        }
-
-        public string ObjectName
-        {
-            get
-            { return m_Name; }
-            set
-            { m_Name = value; }
-        }
-
-        public virtual void SayName()
-        {
-        }
-
-        public void attack(Warrior enemy)
-        {
-            enemy.m_HP -= this.m_Att;
-        }
-
-    }
-
-    class Ninja : Warrior
-    {
-        public Ninja(float h, float a, string n)
-        {
-            this.Health = h;
-            this.Attack = a;
-            this.ObjectName = n;
-        }
-
-        public override void SayName()
-        {
-            Console.WriteLine("I am " + base.ObjectName);
-            Console.WriteLine(this.Health);
-            //Console.ReadLine();
-            //w.HP -= base.Att;
-        }
-
-    }
-
-    class Duck : Warrior
-    {
-        public Duck(float h, float a, string n)
-        {
-            this.Health = h;
-            this.Attack = a;
-            this.ObjectName = n;
-        }
-
-        public override void SayName()
-        {
-            Console.WriteLine("Quack (I am " + base.ObjectName + ")");
-            Console.WriteLine(this.Health);
-            //Console.ReadLine();
-            //w.HP -= base.Att;
-        }
-
-    }
-
     class Program
     {
-
         enum PlayerStates
         {
             init,
@@ -114,20 +20,26 @@ namespace CLass_Practice
 
         static bool init ()
         {
+            bool TeamABuilt = false;
+            List<Base_Class> teamA = new List<Base_Class>();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoadingScene());
+            Application.Run(new LoadingScene(teamA));
             Random rng = new Random();
-            List<Base_Class> teamA = new List<Base_Class>();
-            for (int i = 0; i < 3; i++)
+            if (teamA.Count == 3) { TeamABuilt = true; }
+            else { TeamABuilt = false; }
+            if (TeamABuilt == false)
             {
-                int Cclass = rng.Next(1, 7);
-                if (Cclass == 1) { Black_Mage Character = new Black_Mage("Character" + i, 1); teamA.Add(Character); }
-                else if (Cclass == 2) { Archer Character = new Archer("Character" + i, 1); teamA.Add(Character); }
-                else if (Cclass == 3) { Blue_Mage Character = new Blue_Mage("Character" + i, 1); teamA.Add(Character); }
-                else if (Cclass == 4) { Fighter Character = new Fighter("Character" + i, 1); teamA.Add(Character); }
-                else if (Cclass == 5) { Paladin Character = new Paladin("Character" + i, 1); teamA.Add(Character); }
-                else if (Cclass == 6) { White_Mage Character = new White_Mage("Character" + i, 1); teamA.Add(Character); }
+                for (int i = 0; i < 3; i++)
+                {
+                    int Cclass = rng.Next(1, 7);
+                    if (Cclass == 1) { Black_Mage Character = new Black_Mage("Character" + i, 1); teamA.Add(Character); }
+                    else if (Cclass == 2) { Archer Character = new Archer("Character" + i, 1); teamA.Add(Character); }
+                    else if (Cclass == 3) { Blue_Mage Character = new Blue_Mage("Character" + i, 1); teamA.Add(Character); }
+                    else if (Cclass == 4) { Fighter Character = new Fighter("Character" + i, 1); teamA.Add(Character); }
+                    else if (Cclass == 5) { Paladin Character = new Paladin("Character" + i, 1); teamA.Add(Character); }
+                    else if (Cclass == 6) { White_Mage Character = new White_Mage("Character" + i, 1); teamA.Add(Character); }
+                }
             }
             List<Base_Class> teamB = new List<Base_Class>();
             for (int i = 0; i < 3; i++)
@@ -146,9 +58,11 @@ namespace CLass_Practice
             return false;
         }
 
+        [STAThread]
         static void Main(string[] args)
         {
-            
+           
+            BinaryFormatter BF = new BinaryFormatter();
             Finite_State_Machine FSM = new Finite_State_Machine(PlayerStates.init);
             Combat battle = new Combat();
             FSM.AddState(PlayerStates.init);

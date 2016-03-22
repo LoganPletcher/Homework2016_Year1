@@ -83,6 +83,16 @@ namespace CLass_Practice.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Battleback_mountain_a {
+            get {
+                object obj = ResourceManager.GetObject("Battleback_mountain_a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Black_Mage1 {
             get {
                 object obj = ResourceManager.GetObject("Black_Mage1", resourceCulture);

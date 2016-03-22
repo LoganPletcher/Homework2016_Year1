@@ -37,6 +37,7 @@ public interface ILevelingSystem<T>
     void LevelingUp();
 }
 
+[Serializable()]
 public class Base_Class : IBase<Base_Class>, ILevelingSystem<Base_Class>
 {
     public Random rng = new Random();
