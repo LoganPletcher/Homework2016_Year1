@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.Serialization.Formatters.Binary;
+using System.Diagnostics;
 
 namespace CLass_Practice
 {
@@ -14,19 +14,30 @@ namespace CLass_Practice
         enum PlayerStates
         {
             init,
+            Prebattle,
             teamAturn,
             teamBturn,
             victory,
         }
 
-        static bool init ()
+        static bool init(Finite_State_Machine FSM)
         {
-            Save_and_Load<List<Base_Class>> sl = new Save_and_Load<List<Base_Class>>();
+            FSM.ChangeStates("init->Prebattle");
+            FSM.info();
+            if (Convert.ToString(FSM.CurrentState) == Convert.ToString(PlayerStates.Prebattle))
+            { Prebattle(FSM); }
+            return false;
+        }
+
+        static bool Prebattle (Finite_State_Machine FSM)
+        {
+            Save_and_Load<List<Unit>> sl = new Save_and_Load<List<Unit>>();
             bool TeamABuilt = false;
-            List<Base_Class> teamA = new List<Base_Class>();
+            List<Unit> teamA = new List<Unit>();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoadingScene(teamA));
+            int AverageLevel;
             Random rng = new Random();
             if (teamA.Count == 3) { TeamABuilt = true; }
             else { TeamABuilt = false; }
@@ -42,9 +53,9 @@ namespace CLass_Practice
                     else if (Cclass == 5) { Paladin Character = new Paladin("Character" + i, 1); teamA.Add(Character); }
                     else if (Cclass == 6) { White_Mage Character = new White_Mage("Character" + i, 1); teamA.Add(Character); }
                 }
-                sl.Save("PlayerTeam", teamA);
             }
-            List<Base_Class> teamB = new List<Base_Class>();
+            AverageLevel = (teamA[0].Level + teamA[1].Level + teamA[2].Level) / 3;
+            List<Unit> teamB = new List<Unit>();
             for (int i = 0; i < 3; i++)
             {
                 int Cclass = rng.Next(1, 7);
@@ -55,9 +66,8 @@ namespace CLass_Practice
                 else if (Cclass == 5) { Paladin Enemy = new Paladin("Enemy" + i, 1); teamB.Add(Enemy); }
                 else if (Cclass == 6) { White_Mage Enemy = new White_Mage("Enemy" + i, 1); teamB.Add(Enemy); }
             }
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new BattleScene(teamA, teamB));
+            Environment.Exit(0);
             return false;
         }
 
@@ -65,13 +75,15 @@ namespace CLass_Practice
         static void Main(string[] args)
         {
             Finite_State_Machine FSM = new Finite_State_Machine(PlayerStates.init);
-            Combat battle = new Combat();
+            //Combat battle = new Combat();
             FSM.AddState(PlayerStates.init);
+            FSM.AddState(PlayerStates.Prebattle);
             FSM.AddState(PlayerStates.teamAturn);
             FSM.AddState(PlayerStates.teamBturn);
             FSM.AddState(PlayerStates.victory);
             
-            FSM.AddTransition(PlayerStates.init, PlayerStates.teamAturn);
+            FSM.AddTransition(PlayerStates.init, PlayerStates.Prebattle);
+            FSM.AddTransition(PlayerStates.Prebattle, PlayerStates.teamAturn);
             FSM.AddTransition(PlayerStates.teamAturn, PlayerStates.teamBturn);
             FSM.AddTransition(PlayerStates.teamBturn, PlayerStates.teamAturn);
             FSM.AddTransition(PlayerStates.teamAturn, PlayerStates.victory);
@@ -82,7 +94,7 @@ namespace CLass_Practice
             //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new BattleScene());
 
-            init();
+            init(FSM);
 
             Console.ReadLine();
             //List<Warrior> fighters = new List<Warrior>();

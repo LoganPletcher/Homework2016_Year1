@@ -15,7 +15,7 @@ namespace CLass_Practice
 
 
 
-        public BattleScene(List<Base_Class> teamA, List<Base_Class> teamB)
+        public BattleScene(List<Unit> teamA, List<Unit> teamB)
         {
             
             InitializeComponent();
@@ -57,6 +57,51 @@ namespace CLass_Practice
                 else if (teamB[i].CharacterClass == 6)
                 { sideBimages[i].BackgroundImage = Properties.Resources.White_Mage2; }
             }
+        }
+
+        private void Ability1Button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Ability2Button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Ability3Button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void teamBcharacter_1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void teamBcharacter_2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void teamBcharacter_3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void teamAcharacter_1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void teamAcharacter_2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void teamAcharacter_3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

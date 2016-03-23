@@ -13,9 +13,9 @@ namespace CLass_Practice
     public partial class LoadingScene : Form
     {
         
-        List<Base_Class> PlayerTeam = new List<Base_Class>();
+        List<Unit> PlayerTeam = new List<Unit>();
 
-        public LoadingScene(List<Base_Class> PT)
+        public LoadingScene(List<Unit> PT)
         {
             PlayerTeam = PT;
             InitializeComponent();
@@ -25,16 +25,16 @@ namespace CLass_Practice
 
         private void Yes_Click(object sender, EventArgs e)
         {
-            Save_and_Load<List<Base_Class>> sl = new Save_and_Load<List<Base_Class>>();
-            //ofd.ShowDialog();
-            List<Base_Class> LoadedTeam = sl.Load("PlayerTeam1");
-            //Fighter Character1 = new Fighter("Logan", 3);
-            PlayerTeam.Add(LoadedTeam[0]);
-            //Blue_Mage Character2 = new Blue_Mage("Daniel", 3);
-            PlayerTeam.Add(LoadedTeam[1]);
-            //White_Mage Character3 = new White_Mage("Erik", 3);
-            PlayerTeam.Add(LoadedTeam[2]);
-            this.Close();
+            Save_and_Load<List<Unit>> sl = new Save_and_Load<List<Unit>>();
+            List<Unit> LoadedTeam = sl.Load();
+            if (LoadedTeam.Count != 0)
+            {
+                PlayerTeam.Add(LoadedTeam[0]);
+                PlayerTeam.Add(LoadedTeam[1]);
+                PlayerTeam.Add(LoadedTeam[2]);
+                this.Close();
+            }
+            else { }
         }
 
         private void No_Click(object sender, EventArgs e)

@@ -4,17 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//public interface I
+
 namespace CLass_Practice
 {
-    class Combat
-    {
-
-        static void combat(string[] arg)
-        {
-            
-        }
-
-    }
 
     public class Finite_State_Machine
     {
@@ -29,14 +22,18 @@ namespace CLass_Practice
                 m_secondState = S2;
             }
         }
-        Enum m_currentstate;
+        private Enum m_CS;
+        public Enum CurrentState
+        {
+            get
+            { return m_CS; }
+        }
         private List<Enum> m_States;
 
         public Finite_State_Machine(Enum cs)
         {
-            m_currentstate = cs;
+            m_CS = cs;
             m_States = new List<Enum>();
-            //m_Transitions = new List<Transition>();
         }
 
         public bool ChangeStates(string t)
@@ -51,7 +48,7 @@ namespace CLass_Practice
                 }
                 else
                     validTransition = false;
-                if (Convert.ToString(m_currentstate) == Convert.ToString(entry.Value.m_firstState))
+                if (Convert.ToString(m_CS) == Convert.ToString(entry.Value.m_firstState))
                 {
                     startingState = true;
                 }
@@ -60,8 +57,8 @@ namespace CLass_Practice
                 if (((validTransition == true) && (startingState == true)))
                 {
                     Console.WriteLine
-                        ("Transition is valid. Changing current state from " + m_currentstate + " to " + entry.Value.m_secondState + ".");
-                    m_currentstate = entry.Value.m_secondState;
+                        ("Transition is valid. Changing current state from " + m_CS + " to " + entry.Value.m_secondState + ".");
+                    m_CS = entry.Value.m_secondState;
                     return true;
                 }
             }
@@ -107,7 +104,7 @@ namespace CLass_Practice
                     ("Transition " + count + ": " + entry.Key);
                 count++;
             }
-            Console.WriteLine("The current state is " + m_currentstate);
+            Console.WriteLine("The current state is " + m_CS);
             return count;
         }
 
