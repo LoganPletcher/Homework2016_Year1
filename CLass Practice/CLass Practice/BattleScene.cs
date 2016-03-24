@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace CLass_Practice
 {
@@ -15,10 +16,10 @@ namespace CLass_Practice
 
         protected Unit CurrentUnit = new Unit();
         public Unit SelectedUnit = null;
-        protected List<Unit> m_TA = new List<Unit>();
-        protected List<Unit> m_TB = new List<Unit>();
+        public List<Unit> m_TA = new List<Unit>();
+        public List<Unit> m_TB = new List<Unit>();
 
-        public BattleScene(List<Unit> teamA, List<Unit> teamB)
+        public BattleScene(List<Unit> teamA, List<Unit> teamB, int CU, bool FirstUse)
         {
             m_TA = teamA;
             m_TB = teamB;
@@ -77,7 +78,14 @@ namespace CLass_Practice
                 sideBinfoboxes[i].Text += Convert.ToString(teamB[i].GetType());
                 sideBinfoboxes[i].Text += "\r\nHP: " + teamB[i].Health + "/" + teamB[i].MaxHealth;
             }
-            CurrentUnit = teamA[0];
+            CurrentUnit = teamA[CU];
+            
+            BattleEvents.LoadFile(@"..\..\Resources\BattleEvents.rtf");
+            if (FirstUse)
+            {
+                BattleEvents.Clear();
+                BattleEvents.SaveFile(@"..\..\Resources\BattleEvents.rtf");
+            }
         }
 
         private void Ability1Button_Click(object sender, EventArgs e)
@@ -87,15 +95,19 @@ namespace CLass_Practice
             if(SelectedUnit != null)
             {
                 CurrentUnit.Ability1(SelectedUnit, BattleEvents);
-                for(int i = 0; i > 3; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     if (m_TB[i].Name == CurrentUnit.Name)
                         m_TB[i] = CurrentUnit;
+                    //BattleEvents.SaveFile(@"..\..\Resources\BattleEvents.rtf");
+                    this.Close();
                 }
-                for (int i = 0; i > 3; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     if (m_TA[i].Name == CurrentUnit.Name)
                         m_TA[i] = CurrentUnit;
+                    //BattleEvents.SaveFile(@"..\..\Resources\BattleEvents.rtf");
+                    this.Close();
                 }
             }
         }
@@ -107,15 +119,19 @@ namespace CLass_Practice
             if (SelectedUnit != null)
             {
                 CurrentUnit.Ability2(SelectedUnit, BattleEvents);
-                for (int i = 0; i > 3; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     if (m_TB[i].Name == CurrentUnit.Name)
                         m_TB[i] = CurrentUnit;
+                    //BattleEvents.SaveFile(@"..\..\Resources\BattleEvents.rtf");
+                    this.Close();
                 }
-                for (int i = 0; i > 3; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     if (m_TA[i].Name == CurrentUnit.Name)
                         m_TA[i] = CurrentUnit;
+                    //BattleEvents.SaveFile(@"..\..\Resources\BattleEvents.rtf");
+                    this.Close();
                 }
             }
         }
@@ -127,15 +143,19 @@ namespace CLass_Practice
             if (SelectedUnit != null)
             {
                 CurrentUnit.Ability3(SelectedUnit, BattleEvents);
-                for (int i = 0; i > 3; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     if (m_TB[i].Name == CurrentUnit.Name)
                         m_TB[i] = CurrentUnit;
+                    //BattleEvents.SaveFile(@"..\..\Resources\BattleEvents.rtf");
+                    this.Close();
                 }
-                for (int i = 0; i > 3; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     if (m_TA[i].Name == CurrentUnit.Name)
                         m_TA[i] = CurrentUnit;
+                    //BattleEvents.SaveFile(@"..\..\Resources\BattleEvents.rtf");
+                    this.Close();
                 }
             }
         }

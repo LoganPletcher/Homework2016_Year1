@@ -77,7 +77,16 @@ namespace CLass_Practice
 
         static bool teamAturn(Finite_State_Machine FSM, Save_and_Load<List<Unit>> sl, List<Unit> teamA, List<Unit> teamB)
         {
-            Application.Run(new BattleScene(teamA, teamB));
+            bool FirstUse = false;
+            for (int i = 0; i < 3; i++)
+            {
+                if (i == 0)
+                    FirstUse = true;
+                else
+                    FirstUse = false;
+                BattleScene BS = new BattleScene(teamA, teamB, i, FirstUse);
+                Application.Run(BS);
+            }
             return false;
         }
 

@@ -200,7 +200,7 @@ public class Black_Mage : Unit
         TB.Text += (this.Name + " dealt " + (this.Attack + 2) + " magic damage to " + enemy.Name + ".\r\n");
         enemy.DamageOverTime = 2;
         TB.Text += (this.Name + " poisoned " + enemy.Name + " for 2 rounds with dark magic.\r\n");
-
+        TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
 
     public override void Ability2(Unit enemy, RichTextBox TB)
@@ -210,6 +210,7 @@ public class Black_Mage : Unit
             int damage = rng.Next(1, 3);
             enemy.Health -= damage;
             TB.Text += (this.Name + " dealt " + damage + " magic damage to " + enemy.Name + ".\r\n");
+            TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
         }
     }
 
@@ -217,6 +218,7 @@ public class Black_Mage : Unit
     {
         enemy.Health -= this.Attack + 4;
         TB.Text += (this.Name + " dealt " + (this.Attack + 4) + " magic damage to " + enemy.Name + ".\r\n");
+        TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
 
     public override void LevelingUp()
