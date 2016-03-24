@@ -177,11 +177,20 @@ public class Black_Mage : Unit
     {
         this.Name = n;
         this.Level = l;
+        this.MaxHealth = 20 + ((l - 1) * 5);
         this.Health = 20 + ((l - 1) * 5);
         this.Attack = 3 + ((l - 1) * 1);
         this.Stunned = 0;
         this.DamageOverTime = 0;
         this.CharacterClass = 1;
+        this.ExperiencetoLevelUp = 100;
+        if (l > 1)
+        {
+            for (int i = 1; i < l + 1; i++)
+            {
+                this.ExperiencetoLevelUp *= i;
+            }
+        }
     }
 
     public override void Ability1(Unit enemy)
@@ -230,11 +239,20 @@ public class Archer : Unit
     {
         this.Name = n;
         this.Level = l;
+        this.MaxHealth = 20 + ((l - 1) * 6);
         this.Health = 20 + ((l - 1) * 6);
         this.Attack = 3 + ((l - 1) * 2);
         this.Stunned = 0;
         this.DamageOverTime = 0;
         this.CharacterClass = 2;
+        this.ExperiencetoLevelUp = 100;
+        if (l > 1)
+        {
+            for (int i = 1; i < l + 1; i++)
+            {
+                this.ExperiencetoLevelUp *= i;
+            }
+        }
     }
 
     public override void Ability1(Unit enemy)
@@ -278,11 +296,20 @@ public class Blue_Mage : Unit
     {
         this.Name = n;
         this.Level = l;
+        this.MaxHealth = 20 + ((l - 1) * 5);
         this.Health = 20 + ((l - 1) * 5);
         this.Attack = 3 + ((l - 1) * 1);
         this.Stunned = 0;
         this.DamageOverTime = 0;
         this.CharacterClass = 3;
+        this.ExperiencetoLevelUp = 100;
+        if (l > 1)
+        {
+            for (int i = 1; i < l + 1; i++)
+            {
+                this.ExperiencetoLevelUp *= i;
+            }
+        }
     }
 
     public override void Ability1(Unit enemy)
@@ -323,11 +350,20 @@ public class Fighter : Unit
     {
         this.Name = n;
         this.Level = l;
+        this.MaxHealth = 25 + ((l - 1) * 7);
         this.Health = 25 + ((l - 1) * 7);
         this.Attack = 6 + ((l - 1) * 2);
         this.Stunned = 0;
         this.DamageOverTime = 0;
         this.CharacterClass = 4;
+        this.ExperiencetoLevelUp = 100;
+        if (l > 1)
+        {
+            for (int i = 1; i < l + 1; i++)
+            {
+                this.ExperiencetoLevelUp *= i;
+            }
+        }
     }
 
     public override void Ability1(Unit enemy)
@@ -365,11 +401,20 @@ public class Paladin : Unit
     public Paladin(string n, int l)
     {
         this.Name = n;
+        this.MaxHealth = 25 + ((l - 1) * 7);
         this.Health = 25 + ((l - 1) * 7);
         this.Attack = 6 + ((l - 1) * 2);
         this.Stunned = 0;
         this.DamageOverTime = 0;
         this.CharacterClass = 5;
+        this.ExperiencetoLevelUp = 100;
+        if (l > 1)
+        {
+            for (int i = 1; i < l + 1; i++)
+            {
+                this.ExperiencetoLevelUp *= i;
+            }
+        }
     }
 
     public override void Ability1(Unit enemy)
@@ -408,11 +453,20 @@ public class White_Mage : Unit
     public White_Mage(string n, int l)
     {
         this.Name = n;
+        this.MaxHealth = 25 + ((l - 1) * 5);
         this.Health = 25 + ((l - 1) * 5);
         this.Attack = 2 + ((l - 1) * 1);
         this.Stunned = 0;
         this.DamageOverTime = 0;
         this.CharacterClass = 6;
+        this.ExperiencetoLevelUp = 100;
+        if (l > 1)
+        {
+            for (int i = 1; i < l + 1; i++)
+            {
+                this.ExperiencetoLevelUp *= i;
+            }
+        }
     }
 
     public override void Ability1(Unit enemy)
