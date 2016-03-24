@@ -98,41 +98,86 @@ namespace CLass_Practice
 
         private void teamBcharacter_1_Click(object sender, EventArgs e)
         {
-            teamBcharacter_1.BackColor = Color.FromArgb(Convert.ToInt32(50),Convert.ToInt32(255),Convert.ToInt32(0),Convert.ToInt32(0));
-            teamBcharacter_2.BackColor = Color.Transparent;
-            teamBcharacter_3.BackColor = Color.Transparent;
-            SelectedUnit = m_TB[0];
+            if (CurrentUnit.CharacterClass != 6)
+            {
+                teamBcharacter_1.BackColor = Color.FromArgb(Convert.ToInt32(50), Convert.ToInt32(255), Convert.ToInt32(0), Convert.ToInt32(0));
+                teamBcharacter_2.BackColor = Color.Transparent;
+                teamBcharacter_3.BackColor = Color.Transparent;
+                teamAcharacter_1.BackColor = Color.Transparent;
+                teamAcharacter_2.BackColor = Color.Transparent;
+                teamAcharacter_3.BackColor = Color.Transparent;
+                SelectedUnit = m_TB[0];
+            }
         }
 
         private void teamBcharacter_2_Click(object sender, EventArgs e)
         {
-            teamBcharacter_1.BackColor = Color.Transparent;
-            teamBcharacter_2.BackColor = Color.FromArgb(Convert.ToInt32(50), Convert.ToInt32(255), Convert.ToInt32(0), Convert.ToInt32(0));
-            teamBcharacter_3.BackColor = Color.Transparent;
-            SelectedUnit = m_TB[1];
+            if (CurrentUnit.CharacterClass != 6)
+            {
+                teamBcharacter_1.BackColor = Color.Transparent;
+                teamBcharacter_2.BackColor = Color.FromArgb(Convert.ToInt32(50), Convert.ToInt32(255), Convert.ToInt32(0), Convert.ToInt32(0));
+                teamBcharacter_3.BackColor = Color.Transparent;
+                teamAcharacter_1.BackColor = Color.Transparent;
+                teamAcharacter_2.BackColor = Color.Transparent;
+                teamAcharacter_3.BackColor = Color.Transparent;
+                SelectedUnit = m_TB[1];
+            }
         }
 
         private void teamBcharacter_3_Click(object sender, EventArgs e)
         {
-            teamBcharacter_1.BackColor = Color.Transparent;
-            teamBcharacter_2.BackColor = Color.Transparent;
-            teamBcharacter_3.BackColor = Color.FromArgb(Convert.ToInt32(50), Convert.ToInt32(255), Convert.ToInt32(0), Convert.ToInt32(0));
-            SelectedUnit = m_TB[2];
+            if (CurrentUnit.CharacterClass != 6)
+            {
+                teamBcharacter_1.BackColor = Color.Transparent;
+                teamBcharacter_2.BackColor = Color.Transparent;
+                teamBcharacter_3.BackColor = Color.FromArgb(Convert.ToInt32(50), Convert.ToInt32(255), Convert.ToInt32(0), Convert.ToInt32(0));
+                teamAcharacter_1.BackColor = Color.Transparent;
+                teamAcharacter_2.BackColor = Color.Transparent;
+                teamAcharacter_3.BackColor = Color.Transparent;
+                SelectedUnit = m_TB[2];
+            }
         }
 
         private void teamAcharacter_1_Click(object sender, EventArgs e)
         {
-
+            if (CurrentUnit.CharacterClass == 6)
+            {
+                teamAcharacter_1.BackColor = Color.FromArgb(Convert.ToInt32(50), Convert.ToInt32(0), Convert.ToInt32(255), Convert.ToInt32(0));
+                teamAcharacter_2.BackColor = Color.Transparent;
+                teamAcharacter_3.BackColor = Color.Transparent;
+                teamBcharacter_1.BackColor = Color.Transparent;
+                teamBcharacter_2.BackColor = Color.Transparent;
+                teamBcharacter_3.BackColor = Color.Transparent;
+                SelectedUnit = m_TA[0];
+            }
         }
 
         private void teamAcharacter_2_Click(object sender, EventArgs e)
         {
-
+            if (CurrentUnit.CharacterClass == 6)
+            {
+                teamAcharacter_1.BackColor = Color.Transparent;
+                teamAcharacter_2.BackColor = Color.FromArgb(Convert.ToInt32(50), Convert.ToInt32(0), Convert.ToInt32(255), Convert.ToInt32(0));
+                teamAcharacter_3.BackColor = Color.Transparent;
+                teamBcharacter_1.BackColor = Color.Transparent;
+                teamBcharacter_2.BackColor = Color.Transparent;
+                teamBcharacter_3.BackColor = Color.Transparent;
+                SelectedUnit = m_TA[1];
+            }
         }
 
         private void teamAcharacter_3_Click(object sender, EventArgs e)
         {
-
+            if (CurrentUnit.CharacterClass == 6)
+            {
+                teamAcharacter_1.BackColor = Color.Transparent;
+                teamAcharacter_2.BackColor = Color.Transparent;
+                teamAcharacter_3.BackColor = Color.FromArgb(Convert.ToInt32(50), Convert.ToInt32(0), Convert.ToInt32(255), Convert.ToInt32(0));
+                teamBcharacter_1.BackColor = Color.Transparent;
+                teamBcharacter_2.BackColor = Color.Transparent;
+                teamBcharacter_3.BackColor = Color.Transparent;
+                SelectedUnit = m_TA[2];
+            }
         }
     }
 }

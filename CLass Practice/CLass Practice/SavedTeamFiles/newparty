@@ -1,5 +1,18 @@
 <?xml version="1.0"?>
 <ArrayOfUnit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Unit xsi:type="White_Mage">
+    <rng />
+    <Name>Daniel</Name>
+    <Attack>4</Attack>
+    <DamageOverTime>0</DamageOverTime>
+    <MaxHealth>35</MaxHealth>
+    <Health>35</Health>
+    <Stunned>0</Stunned>
+    <CharacterClass>6</CharacterClass>
+    <Level>3</Level>
+    <ExperiencePoints>0</ExperiencePoints>
+    <ExperiencetoLevelUp>600</ExperiencetoLevelUp>
+  </Unit>
   <Unit xsi:type="Black_Mage">
     <rng />
     <Name>Logan</Name>
@@ -22,19 +35,6 @@
     <Health>39</Health>
     <Stunned>0</Stunned>
     <CharacterClass>4</CharacterClass>
-    <Level>3</Level>
-    <ExperiencePoints>0</ExperiencePoints>
-    <ExperiencetoLevelUp>600</ExperiencetoLevelUp>
-  </Unit>
-  <Unit xsi:type="Archer">
-    <rng />
-    <Name>Daniel</Name>
-    <Attack>7</Attack>
-    <DamageOverTime>0</DamageOverTime>
-    <MaxHealth>32</MaxHealth>
-    <Health>32</Health>
-    <Stunned>0</Stunned>
-    <CharacterClass>2</CharacterClass>
     <Level>3</Level>
     <ExperiencePoints>0</ExperiencePoints>
     <ExperiencetoLevelUp>600</ExperiencetoLevelUp>

@@ -54,32 +54,42 @@
             // 
             // Ability1Button
             // 
+            this.Ability1Button.BackColor = System.Drawing.Color.Transparent;
+            this.Ability1Button.BackgroundImage = global::CLass_Practice.Properties.Resources.Battleback_mountain_a;
+            this.Ability1Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Ability1Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Ability1Button.Location = new System.Drawing.Point(873, 845);
             this.Ability1Button.Name = "Ability1Button";
             this.Ability1Button.Size = new System.Drawing.Size(75, 23);
             this.Ability1Button.TabIndex = 8;
-            this.Ability1Button.Text = "button1";
-            this.Ability1Button.UseVisualStyleBackColor = true;
+            this.Ability1Button.Text = "Ability 1";
+            this.Ability1Button.UseVisualStyleBackColor = false;
             this.Ability1Button.Click += new System.EventHandler(this.Ability1Button_Click);
             // 
             // Ability2Button
             // 
+            this.Ability2Button.BackColor = System.Drawing.Color.Transparent;
+            this.Ability2Button.BackgroundImage = global::CLass_Practice.Properties.Resources.Battleback_mountain_a;
+            this.Ability2Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Ability2Button.Location = new System.Drawing.Point(873, 874);
             this.Ability2Button.Name = "Ability2Button";
             this.Ability2Button.Size = new System.Drawing.Size(75, 23);
             this.Ability2Button.TabIndex = 9;
-            this.Ability2Button.Text = "button2";
-            this.Ability2Button.UseVisualStyleBackColor = true;
+            this.Ability2Button.Text = "Ability 2";
+            this.Ability2Button.UseVisualStyleBackColor = false;
             this.Ability2Button.Click += new System.EventHandler(this.Ability2Button_Click);
             // 
             // Ability3Button
             // 
+            this.Ability3Button.BackColor = System.Drawing.Color.Transparent;
+            this.Ability3Button.BackgroundImage = global::CLass_Practice.Properties.Resources.Battleback_mountain_a;
+            this.Ability3Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Ability3Button.Location = new System.Drawing.Point(873, 903);
             this.Ability3Button.Name = "Ability3Button";
             this.Ability3Button.Size = new System.Drawing.Size(75, 23);
             this.Ability3Button.TabIndex = 10;
-            this.Ability3Button.Text = "button3";
-            this.Ability3Button.UseVisualStyleBackColor = true;
+            this.Ability3Button.Text = "Ability 3";
+            this.Ability3Button.UseVisualStyleBackColor = false;
             this.Ability3Button.Click += new System.EventHandler(this.Ability3Button_Click);
             // 
             // richTextBox1
@@ -158,6 +168,8 @@
             // 
             // teamAcharacter_1_infobox
             // 
+            this.teamAcharacter_1_infobox.BackColor = System.Drawing.Color.Green;
+            this.teamAcharacter_1_infobox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.teamAcharacter_1_infobox.Location = new System.Drawing.Point(228, 355);
             this.teamAcharacter_1_infobox.Multiline = true;
             this.teamAcharacter_1_infobox.Name = "teamAcharacter_1_infobox";
@@ -166,6 +178,8 @@
             // 
             // teamAcharacter_2_infobox
             // 
+            this.teamAcharacter_2_infobox.BackColor = System.Drawing.Color.Green;
+            this.teamAcharacter_2_infobox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.teamAcharacter_2_infobox.Location = new System.Drawing.Point(430, 742);
             this.teamAcharacter_2_infobox.Multiline = true;
             this.teamAcharacter_2_infobox.Name = "teamAcharacter_2_infobox";
@@ -174,6 +188,8 @@
             // 
             // teamAcharacter_3_infobox
             // 
+            this.teamAcharacter_3_infobox.BackColor = System.Drawing.Color.Green;
+            this.teamAcharacter_3_infobox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.teamAcharacter_3_infobox.Location = new System.Drawing.Point(42, 742);
             this.teamAcharacter_3_infobox.Multiline = true;
             this.teamAcharacter_3_infobox.Name = "teamAcharacter_3_infobox";
@@ -182,6 +198,8 @@
             // 
             // teamBcharacter_1_infobox
             // 
+            this.teamBcharacter_1_infobox.BackColor = System.Drawing.Color.Red;
+            this.teamBcharacter_1_infobox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.teamBcharacter_1_infobox.Location = new System.Drawing.Point(1303, 355);
             this.teamBcharacter_1_infobox.Multiline = true;
             this.teamBcharacter_1_infobox.Name = "teamBcharacter_1_infobox";
@@ -190,6 +208,8 @@
             // 
             // teamBcharacter_2_infobox
             // 
+            this.teamBcharacter_2_infobox.BackColor = System.Drawing.Color.Red;
+            this.teamBcharacter_2_infobox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.teamBcharacter_2_infobox.Location = new System.Drawing.Point(1119, 742);
             this.teamBcharacter_2_infobox.Multiline = true;
             this.teamBcharacter_2_infobox.Name = "teamBcharacter_2_infobox";
@@ -198,6 +218,8 @@
             // 
             // teamBcharacter_3_infobox
             // 
+            this.teamBcharacter_3_infobox.BackColor = System.Drawing.Color.Red;
+            this.teamBcharacter_3_infobox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.teamBcharacter_3_infobox.Location = new System.Drawing.Point(1487, 742);
             this.teamBcharacter_3_infobox.Multiline = true;
             this.teamBcharacter_3_infobox.Name = "teamBcharacter_3_infobox";
