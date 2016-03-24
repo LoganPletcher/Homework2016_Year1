@@ -31,7 +31,7 @@
             this.Ability1Button = new System.Windows.Forms.Button();
             this.Ability2Button = new System.Windows.Forms.Button();
             this.Ability3Button = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.BattleEvents = new System.Windows.Forms.RichTextBox();
             this.teamAcharacter_2 = new System.Windows.Forms.PictureBox();
             this.teamAcharacter_3 = new System.Windows.Forms.PictureBox();
             this.teamBcharacter_3 = new System.Windows.Forms.PictureBox();
@@ -92,13 +92,13 @@
             this.Ability3Button.UseVisualStyleBackColor = false;
             this.Ability3Button.Click += new System.EventHandler(this.Ability3Button_Click);
             // 
-            // richTextBox1
+            // BattleEvents
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 844);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(855, 82);
-            this.richTextBox1.TabIndex = 16;
-            this.richTextBox1.Text = "";
+            this.BattleEvents.Location = new System.Drawing.Point(12, 844);
+            this.BattleEvents.Name = "BattleEvents";
+            this.BattleEvents.Size = new System.Drawing.Size(855, 82);
+            this.BattleEvents.TabIndex = 16;
+            this.BattleEvents.Text = "";
             // 
             // teamAcharacter_2
             // 
@@ -239,7 +239,7 @@
             this.Controls.Add(this.teamAcharacter_3_infobox);
             this.Controls.Add(this.teamAcharacter_2_infobox);
             this.Controls.Add(this.teamAcharacter_1_infobox);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.BattleEvents);
             this.Controls.Add(this.teamAcharacter_2);
             this.Controls.Add(this.teamAcharacter_3);
             this.Controls.Add(this.teamBcharacter_3);
@@ -274,7 +274,7 @@
         private System.Windows.Forms.PictureBox teamBcharacter_3;
         private System.Windows.Forms.PictureBox teamAcharacter_3;
         private System.Windows.Forms.PictureBox teamAcharacter_2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox BattleEvents;
         private System.Windows.Forms.TextBox teamAcharacter_1_infobox;
         private System.Windows.Forms.TextBox teamAcharacter_2_infobox;
         private System.Windows.Forms.TextBox teamAcharacter_3_infobox;

@@ -14,8 +14,7 @@ namespace CLass_Practice
     {
 
         protected Unit CurrentUnit = new Unit();
-        public string SelectedAbility;
-        public Unit SelectedUnit = new Unit();
+        public Unit SelectedUnit = null;
         protected List<Unit> m_TA = new List<Unit>();
         protected List<Unit> m_TB = new List<Unit>();
 
@@ -83,17 +82,62 @@ namespace CLass_Practice
 
         private void Ability1Button_Click(object sender, EventArgs e)
         {
-
+            if (BattleEvents.Lines.Count() >= 6)
+                BattleEvents.Clear();
+            if(SelectedUnit != null)
+            {
+                CurrentUnit.Ability1(SelectedUnit, BattleEvents);
+                for(int i = 0; i > 3; i++)
+                {
+                    if (m_TB[i].Name == CurrentUnit.Name)
+                        m_TB[i] = CurrentUnit;
+                }
+                for (int i = 0; i > 3; i++)
+                {
+                    if (m_TA[i].Name == CurrentUnit.Name)
+                        m_TA[i] = CurrentUnit;
+                }
+            }
         }
 
         private void Ability2Button_Click(object sender, EventArgs e)
         {
-
+            if (BattleEvents.Lines.Count() >= 6)
+                BattleEvents.Clear();
+            if (SelectedUnit != null)
+            {
+                CurrentUnit.Ability2(SelectedUnit, BattleEvents);
+                for (int i = 0; i > 3; i++)
+                {
+                    if (m_TB[i].Name == CurrentUnit.Name)
+                        m_TB[i] = CurrentUnit;
+                }
+                for (int i = 0; i > 3; i++)
+                {
+                    if (m_TA[i].Name == CurrentUnit.Name)
+                        m_TA[i] = CurrentUnit;
+                }
+            }
         }
 
         private void Ability3Button_Click(object sender, EventArgs e)
         {
-
+            if (BattleEvents.Lines.Count() >= 6)
+                BattleEvents.Clear();
+            if (SelectedUnit != null)
+            {
+                CurrentUnit.Ability3(SelectedUnit, BattleEvents);
+                for (int i = 0; i > 3; i++)
+                {
+                    if (m_TB[i].Name == CurrentUnit.Name)
+                        m_TB[i] = CurrentUnit;
+                }
+                for (int i = 0; i > 3; i++)
+                {
+                    if (m_TA[i].Name == CurrentUnit.Name)
+                        m_TA[i] = CurrentUnit;
+                }
+            }
         }
 
         private void teamBcharacter_1_Click(object sender, EventArgs e)

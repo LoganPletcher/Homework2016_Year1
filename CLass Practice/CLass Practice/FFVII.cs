@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using System.Windows.Forms;
 
 /// <summary>
 /// The Base interface for an object.
@@ -18,9 +19,9 @@ public interface IBaseStats<T>
     { get; set; } // Health is a stored integer that represents an object's current hit points.
     int Attack
     { get; set; } // Attack is a stored integer that represents the base for an object's abilities that affect another object's Health integer.
-    void Ability1(T enemy); // A void function that exists to be further defined by an object.
-    void Ability2(T enemy); // A void function that exists to be further defined by an object.
-    void Ability3(T enemy); // A void function that exists to be further defined by an object.
+    void Ability1(T enemy, RichTextBox TB); // A void function that exists to be further defined by an object.
+    void Ability2(T enemy, RichTextBox TB); // A void function that exists to be further defined by an object.
+    void Ability3(T enemy, RichTextBox TB); // A void function that exists to be further defined by an object.
     void Refresh(); // A void function that resets an object's stats, with what stats those are to be defined in the object.
     int Stunned
     { get; set; } // Stunned is a stored integer that represents how long an object cannot attack.
@@ -117,13 +118,13 @@ public class Unit : IBaseStats<Unit>, ILevelingSystem<Unit>
         { m_CC = value; }
     }
 
-    public virtual void Ability1(Unit enemy) // Sets the parameter's type to Unit and is made to be virtual so classes that inherit this function from Unit can override the function and make it specific to the inheriting class.
+    public virtual void Ability1(Unit enemy, RichTextBox TB) // Sets the parameter's type to Unit and is made to be virtual so classes that inherit this function from Unit can override the function and make it specific to the inheriting class.
     {    }
 
-    public virtual void Ability2(Unit enemy) // Sets the parameter's type to Unit and is made to be virtual so classes that inherit this function from Unit can override the function and make it specific to the inheriting class.
+    public virtual void Ability2(Unit enemy, RichTextBox TB) // Sets the parameter's type to Unit and is made to be virtual so classes that inherit this function from Unit can override the function and make it specific to the inheriting class.
     {    }
 
-    public virtual void Ability3(Unit enemy) // Sets the parameter's type to Unit and is made to be virtual so classes that inherit this function from Unit can override the function and make it specific to the inheriting class.
+    public virtual void Ability3(Unit enemy, RichTextBox TB) // Sets the parameter's type to Unit and is made to be virtual so classes that inherit this function from Unit can override the function and make it specific to the inheriting class.
     {    }
 
     public virtual void Refresh() // Sets an object's Health to it's MaxHealth and sets it's Stunned and DamageOverTime both to zero.
@@ -193,29 +194,29 @@ public class Black_Mage : Unit
         }
     }
 
-    public override void Ability1(Unit enemy)
+    public override void Ability1(Unit enemy, RichTextBox TB)
     {
         enemy.Health -= this.Attack + 2;
-        Console.WriteLine(this.Name + " dealt " + (this.Attack + 2) + " magic damage to " + enemy.Name);
+        TB.Text += (this.Name + " dealt " + (this.Attack + 2) + " magic damage to " + enemy.Name + ".\r\n");
         enemy.DamageOverTime = 2;
-        Console.WriteLine(this.Name + " poisoned " + enemy.Name + "for 2 rounds with dark magic.");
+        TB.Text += (this.Name + " poisoned " + enemy.Name + " for 2 rounds with dark magic.\r\n");
 
     }
 
-    public override void Ability2(Unit enemy)
+    public override void Ability2(Unit enemy, RichTextBox TB)
     {
         for (int i = 0; i < 3; i++)
         {
-            int damage = rng.Next(0, 2);
+            int damage = rng.Next(1, 3);
             enemy.Health -= damage;
-            Console.WriteLine(enemy.Name + " took " + damage + " magic damage.");
+            TB.Text += (this.Name + " dealt " + damage + " magic damage to " + enemy.Name + ".\r\n");
         }
     }
 
-    public override void Ability3(Unit enemy)
+    public override void Ability3(Unit enemy, RichTextBox TB)
     {
         enemy.Health -= this.Attack + 4;
-        Console.WriteLine(enemy.Name + " took " + (this.Attack + 4) + " magic damage.");
+        TB.Text += (this.Name + " dealt " + (this.Attack + 4) + " magic damage to " + enemy.Name + ".\r\n");
     }
 
     public override void LevelingUp()
@@ -255,24 +256,26 @@ public class Archer : Unit
         }
     }
 
-    public override void Ability1(Unit enemy)
+    public override void Ability1(Unit enemy, RichTextBox TB)
     {
         for (int i = 0; i < 2; i++)
         {
-            enemy.Health -= this.Attack + 3;
-            Console.WriteLine(enemy.Name + " took " + (this.Attack + 3) + " ranged damage.");
+            enemy.Health -= this.Attack + 2;
+            TB.Text += (this.Name + " dealt " + (this.Attack + 3) + " ranged damage to " + enemy.Name + ".\r\n");
         }
     }
 
-    public override void Ability2(Unit enemy)
+    public override void Ability2(Unit enemy, RichTextBox TB)
     {
         enemy.Health -= this.Attack;
+        TB.Text += (this.Name + " dealt " + this.Attack + " ranged damage to " + enemy.Name + ".\r\n");
         enemy.Stunned = 2;
     }
 
-    public override void Ability3(Unit enemy)
+    public override void Ability3(Unit enemy, RichTextBox TB)
     {
         enemy.Health -= this.Attack + 6;
+        TB.Text += (this.Name + " dealt " + (this.Attack + 6) + " ranged damage to " + enemy.Name + ".\r\n");
     }
 
     public override void LevelingUp()
@@ -312,21 +315,23 @@ public class Blue_Mage : Unit
         }
     }
 
-    public override void Ability1(Unit enemy)
+    public override void Ability1(Unit enemy, RichTextBox TB)
     {
         enemy.DamageOverTime = 2;
         enemy.Stunned = 2;
     }
 
-    public override void Ability2(Unit enemy)
+    public override void Ability2(Unit enemy, RichTextBox TB)
     {
         enemy.Health -= (this.Attack + 2);
+        TB.Text += (this.Name + " dealt " + (this.Attack + 2) + " magic damage to " + enemy.Name + ".\r\n");
         enemy.Stunned = 4;
     }
 
-    public override void Ability3(Unit enemy)
+    public override void Ability3(Unit enemy, RichTextBox TB)
     {
         enemy.Health -= this.Attack;
+        TB.Text += (this.Name + " dealt " + this.Attack + " magic damage to " + enemy.Name + ".\r\n");
         enemy.DamageOverTime = 4;
     }
 
@@ -366,20 +371,23 @@ public class Fighter : Unit
         }
     }
 
-    public override void Ability1(Unit enemy)
+    public override void Ability1(Unit enemy, RichTextBox TB)
     {
         enemy.Health -= (this.Attack + 6);
+        TB.Text += (this.Name + " dealt " + (this.Attack + 6) + " melee damage to " + enemy.Name + ".\r\n");
     }
 
-    public override void Ability2(Unit enemy)
+    public override void Ability2(Unit enemy, RichTextBox TB)
     {
         enemy.Health -= (this.Attack + 2);
+        TB.Text += (this.Name + " dealt " + (this.Attack + 2) + " melee damage to " + enemy.Name + ".\r\n");
         enemy.DamageOverTime = 2;
     }
 
-    public override void Ability3(Unit enemy)
+    public override void Ability3(Unit enemy, RichTextBox TB)
     {
         enemy.Health -= (this.Attack + this.Attack);
+        TB.Text += (this.Name + " dealt " + (this.Attack + this.Attack) + " melee damage to " + enemy.Name + ".\r\n");
     }
 
     public override void LevelingUp()
@@ -418,21 +426,24 @@ public class Paladin : Unit
         }
     }
 
-    public override void Ability1(Unit enemy)
+    public override void Ability1(Unit enemy, RichTextBox TB)
     {
         enemy.Health -= (this.Attack + 10);
+        TB.Text += (this.Name + " dealt " + (this.Attack + 10) + " melee damage to " + enemy.Name + ".\r\n");
         enemy.Stunned = 0;
     }
 
-    public override void Ability2(Unit enemy)
+    public override void Ability2(Unit enemy, RichTextBox TB)
     {
         enemy.Health -= (this.Attack + 10);
+        TB.Text += (this.Name + " dealt " + (this.Attack + 10) + " melee damage to " + enemy.Name + ".\r\n");
         enemy.DamageOverTime = 0;
     }
 
-    public override void Ability3(Unit enemy)
+    public override void Ability3(Unit enemy, RichTextBox TB)
     {
         enemy.Health -= (this.Attack + 6);
+        TB.Text += (this.Name + " dealt " + (this.Attack + 6) + " melee damage to " + enemy.Name + ".\r\n");
     }
 
     public override void LevelingUp()
@@ -471,17 +482,17 @@ public class White_Mage : Unit
         }
     }
 
-    public override void Ability1(Unit enemy)
+    public override void Ability1(Unit enemy, RichTextBox TB)
     {
         enemy.Health += this.Attack + 10;
     }
 
-    public override void Ability2(Unit enemy)
+    public override void Ability2(Unit enemy, RichTextBox TB)
     {
         enemy.Stunned = 0;
     }
 
-    public override void Ability3(Unit enemy)
+    public override void Ability3(Unit enemy, RichTextBox TB)
     {
         enemy.DamageOverTime = 0;
     }
