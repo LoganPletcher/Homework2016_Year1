@@ -25,6 +25,8 @@ namespace CLass_Practice
             Save_and_Load<List<Unit>> sl = new Save_and_Load<List<Unit>>();
             FSM.ChangeStates("init->Prebattle");
             FSM.info();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             if (Convert.ToString(FSM.CurrentState) == Convert.ToString(PlayerStates.Prebattle))
             { Prebattle(FSM, sl); }
             return false;
@@ -34,8 +36,6 @@ namespace CLass_Practice
         {
             bool TeamABuilt = false;
             List<Unit> teamA = new List<Unit>();
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoadingScene(teamA));
             int AverageLevel;
             Random rng = new Random();
@@ -68,6 +68,7 @@ namespace CLass_Practice
             }
             //Application.Run(new BattleScene(teamA, teamB));
             FSM.ChangeStates("Prebattle->teamAturn");
+            FSM.info();
             if(Convert.ToString(FSM.CurrentState) == Convert.ToString(PlayerStates.teamAturn))
             { teamAturn(FSM, sl, teamA, teamB); }
             Environment.Exit(0);
@@ -76,7 +77,7 @@ namespace CLass_Practice
 
         static bool teamAturn(Finite_State_Machine FSM, Save_and_Load<List<Unit>> sl, List<Unit> teamA, List<Unit> teamB)
         {
-
+            Application.Run(new BattleScene(teamA, teamB));
             return false;
         }
 

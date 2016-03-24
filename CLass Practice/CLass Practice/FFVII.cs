@@ -401,6 +401,7 @@ public class Paladin : Unit
     public Paladin(string n, int l)
     {
         this.Name = n;
+        this.Level = l;
         this.MaxHealth = 25 + ((l - 1) * 7);
         this.Health = 25 + ((l - 1) * 7);
         this.Attack = 6 + ((l - 1) * 2);
@@ -453,6 +454,7 @@ public class White_Mage : Unit
     public White_Mage(string n, int l)
     {
         this.Name = n;
+        this.Level = l;
         this.MaxHealth = 25 + ((l - 1) * 5);
         this.Health = 25 + ((l - 1) * 5);
         this.Attack = 2 + ((l - 1) * 1);

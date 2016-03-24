@@ -38,6 +38,12 @@
             this.teamBcharacter_2 = new System.Windows.Forms.PictureBox();
             this.teamBcharacter_1 = new System.Windows.Forms.PictureBox();
             this.teamAcharacter_1 = new System.Windows.Forms.PictureBox();
+            this.teamAcharacter_1_infobox = new System.Windows.Forms.TextBox();
+            this.teamAcharacter_2_infobox = new System.Windows.Forms.TextBox();
+            this.teamAcharacter_3_infobox = new System.Windows.Forms.TextBox();
+            this.teamBcharacter_1_infobox = new System.Windows.Forms.TextBox();
+            this.teamBcharacter_2_infobox = new System.Windows.Forms.TextBox();
+            this.teamBcharacter_3_infobox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.teamAcharacter_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamAcharacter_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamBcharacter_3)).BeginInit();
@@ -150,6 +156,54 @@
             this.teamAcharacter_1.TabStop = false;
             this.teamAcharacter_1.Click += new System.EventHandler(this.teamAcharacter_1_Click);
             // 
+            // teamAcharacter_1_infobox
+            // 
+            this.teamAcharacter_1_infobox.Location = new System.Drawing.Point(228, 355);
+            this.teamAcharacter_1_infobox.Multiline = true;
+            this.teamAcharacter_1_infobox.Name = "teamAcharacter_1_infobox";
+            this.teamAcharacter_1_infobox.Size = new System.Drawing.Size(291, 32);
+            this.teamAcharacter_1_infobox.TabIndex = 17;
+            // 
+            // teamAcharacter_2_infobox
+            // 
+            this.teamAcharacter_2_infobox.Location = new System.Drawing.Point(430, 742);
+            this.teamAcharacter_2_infobox.Multiline = true;
+            this.teamAcharacter_2_infobox.Name = "teamAcharacter_2_infobox";
+            this.teamAcharacter_2_infobox.Size = new System.Drawing.Size(291, 32);
+            this.teamAcharacter_2_infobox.TabIndex = 18;
+            // 
+            // teamAcharacter_3_infobox
+            // 
+            this.teamAcharacter_3_infobox.Location = new System.Drawing.Point(42, 742);
+            this.teamAcharacter_3_infobox.Multiline = true;
+            this.teamAcharacter_3_infobox.Name = "teamAcharacter_3_infobox";
+            this.teamAcharacter_3_infobox.Size = new System.Drawing.Size(291, 32);
+            this.teamAcharacter_3_infobox.TabIndex = 19;
+            // 
+            // teamBcharacter_1_infobox
+            // 
+            this.teamBcharacter_1_infobox.Location = new System.Drawing.Point(1303, 355);
+            this.teamBcharacter_1_infobox.Multiline = true;
+            this.teamBcharacter_1_infobox.Name = "teamBcharacter_1_infobox";
+            this.teamBcharacter_1_infobox.Size = new System.Drawing.Size(291, 32);
+            this.teamBcharacter_1_infobox.TabIndex = 20;
+            // 
+            // teamBcharacter_2_infobox
+            // 
+            this.teamBcharacter_2_infobox.Location = new System.Drawing.Point(1119, 742);
+            this.teamBcharacter_2_infobox.Multiline = true;
+            this.teamBcharacter_2_infobox.Name = "teamBcharacter_2_infobox";
+            this.teamBcharacter_2_infobox.Size = new System.Drawing.Size(291, 32);
+            this.teamBcharacter_2_infobox.TabIndex = 21;
+            // 
+            // teamBcharacter_3_infobox
+            // 
+            this.teamBcharacter_3_infobox.Location = new System.Drawing.Point(1487, 742);
+            this.teamBcharacter_3_infobox.Multiline = true;
+            this.teamBcharacter_3_infobox.Name = "teamBcharacter_3_infobox";
+            this.teamBcharacter_3_infobox.Size = new System.Drawing.Size(291, 32);
+            this.teamBcharacter_3_infobox.TabIndex = 22;
+            // 
             // BattleScene
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,6 +211,12 @@
             this.BackgroundImage = global::CLass_Practice.Properties.Resources.Battleback_mountain_a;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1814, 932);
+            this.Controls.Add(this.teamBcharacter_3_infobox);
+            this.Controls.Add(this.teamBcharacter_2_infobox);
+            this.Controls.Add(this.teamBcharacter_1_infobox);
+            this.Controls.Add(this.teamAcharacter_3_infobox);
+            this.Controls.Add(this.teamAcharacter_2_infobox);
+            this.Controls.Add(this.teamAcharacter_1_infobox);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.teamAcharacter_2);
             this.Controls.Add(this.teamAcharacter_3);
@@ -178,6 +238,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.teamBcharacter_1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamAcharacter_1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -192,5 +253,11 @@
         private System.Windows.Forms.PictureBox teamAcharacter_3;
         private System.Windows.Forms.PictureBox teamAcharacter_2;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TextBox teamAcharacter_1_infobox;
+        private System.Windows.Forms.TextBox teamAcharacter_2_infobox;
+        private System.Windows.Forms.TextBox teamAcharacter_3_infobox;
+        private System.Windows.Forms.TextBox teamBcharacter_1_infobox;
+        private System.Windows.Forms.TextBox teamBcharacter_2_infobox;
+        private System.Windows.Forms.TextBox teamBcharacter_3_infobox;
     }
 }
