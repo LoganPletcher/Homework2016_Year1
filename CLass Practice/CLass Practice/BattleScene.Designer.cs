@@ -44,6 +44,7 @@
             this.teamBcharacter_1_infobox = new System.Windows.Forms.TextBox();
             this.teamBcharacter_2_infobox = new System.Windows.Forms.TextBox();
             this.teamBcharacter_3_infobox = new System.Windows.Forms.TextBox();
+            this.save_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.teamAcharacter_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamAcharacter_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamBcharacter_3)).BeginInit();
@@ -226,6 +227,16 @@
             this.teamBcharacter_3_infobox.Size = new System.Drawing.Size(291, 32);
             this.teamBcharacter_3_infobox.TabIndex = 22;
             // 
+            // save_button
+            // 
+            this.save_button.Location = new System.Drawing.Point(648, 83);
+            this.save_button.Name = "save_button";
+            this.save_button.Size = new System.Drawing.Size(75, 23);
+            this.save_button.TabIndex = 23;
+            this.save_button.Text = "Save";
+            this.save_button.UseVisualStyleBackColor = true;
+            this.save_button.Click += new System.EventHandler(this.save_button_Click);
+            // 
             // BattleScene
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -233,6 +244,7 @@
             this.BackgroundImage = global::CLass_Practice.Properties.Resources.Battleback_mountain_a;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1814, 932);
+            this.Controls.Add(this.save_button);
             this.Controls.Add(this.teamBcharacter_3_infobox);
             this.Controls.Add(this.teamBcharacter_2_infobox);
             this.Controls.Add(this.teamBcharacter_1_infobox);
@@ -281,5 +293,6 @@
         private System.Windows.Forms.TextBox teamBcharacter_1_infobox;
         private System.Windows.Forms.TextBox teamBcharacter_2_infobox;
         private System.Windows.Forms.TextBox teamBcharacter_3_infobox;
+        private System.Windows.Forms.Button save_button;
     }
 }

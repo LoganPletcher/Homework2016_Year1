@@ -13,9 +13,9 @@ namespace CLass_Practice
     public partial class LoadingScene : Form
     {
         
-        List<Unit> PlayerTeam = new List<Unit>();
+        Party PlayerTeam = new Party();
 
-        public LoadingScene(List<Unit> PT)
+        public LoadingScene(Party PT)
         {
             PlayerTeam = PT;
             InitializeComponent();
@@ -25,16 +25,28 @@ namespace CLass_Practice
 
         private void Yes_Click(object sender, EventArgs e)
         {
-            Save_and_Load<List<Unit>> sl = new Save_and_Load<List<Unit>>();
-            List<Unit> LoadedTeam = sl.Load();
-            if (LoadedTeam.Count != 0)
+            Save_and_Load<Party> sl = new Save_and_Load<Party>();
+            Party LoadedTeam = sl.Load();
+            //PlayerTeam = LoadedTeam;
+            foreach (Unit u in LoadedTeam.Members)
             {
+                PlayerTeam.Members.Add(u);
+            }
+            this.Close();
+            /*
+            if (LoadedTeam.Members.Count != 0)
+            {
+                for(int i = 0; i <3; i++)
+                {
+                    
+                }
                 PlayerTeam.Add(LoadedTeam[0]);
                 PlayerTeam.Add(LoadedTeam[1]);
                 PlayerTeam.Add(LoadedTeam[2]);
                 this.Close();
             }
             else { }
+            */
         }
 
         private void No_Click(object sender, EventArgs e)

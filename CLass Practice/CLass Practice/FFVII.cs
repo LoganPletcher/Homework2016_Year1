@@ -69,7 +69,7 @@ public class Unit : IBaseStats<Unit>, ILevelingSystem<Unit>
         set
         { m_Name = value; }
     }
-    
+
     public int Attack // Makes Attack refer to m_Att
     {
         get
@@ -119,13 +119,13 @@ public class Unit : IBaseStats<Unit>, ILevelingSystem<Unit>
     }
 
     public virtual void Ability1(Unit enemy, RichTextBox TB) // Sets the parameter's type to Unit and is made to be virtual so classes that inherit this function from Unit can override the function and make it specific to the inheriting class.
-    {    }
+    { }
 
     public virtual void Ability2(Unit enemy, RichTextBox TB) // Sets the parameter's type to Unit and is made to be virtual so classes that inherit this function from Unit can override the function and make it specific to the inheriting class.
-    {    }
+    { }
 
     public virtual void Ability3(Unit enemy, RichTextBox TB) // Sets the parameter's type to Unit and is made to be virtual so classes that inherit this function from Unit can override the function and make it specific to the inheriting class.
-    {    }
+    { }
 
     public virtual void Refresh() // Sets an object's Health to it's MaxHealth and sets it's Stunned and DamageOverTime both to zero.
     {
@@ -133,7 +133,7 @@ public class Unit : IBaseStats<Unit>, ILevelingSystem<Unit>
         this.Stunned = 0;
         this.DamageOverTime = 0;
     }
-    
+
     public int Level // Makes Level refer to m_LVL
     {
         get
@@ -166,6 +166,79 @@ public class Unit : IBaseStats<Unit>, ILevelingSystem<Unit>
     }
 }
 
+public enum PartyType
+{
+    ENEMY,
+    CHARACTER,
+}
+public enum ClassType
+{
+    DEFAULT = 0,
+    BlackMage = 1,
+    Archer = 2,
+    BlueMage =3,
+    Fighter = 4,
+    Paladin =5,
+    WhiteMage = 6,
+}
+[Serializable]
+public class Party
+{
+    public Party()
+    {
+        _members = new List<Unit>();
+    }
+    public Party(PartyType p, int avg)
+    {        
+        _members = new List<Unit>();
+        RandomTeam(p, avg);
+    }
+
+    List<Unit> _members;
+    public List<Unit> Members
+    {
+        get { return _members; }
+        set { _members = value; }
+    }
+
+    private void RandomTeam(PartyType p, int averageLevel)
+    {
+        Random r = new Random();
+        for (int i = 0; i < 3; ++i)
+        {
+          
+            int randomClass = r.Next(1, 7);
+            string name = (p == PartyType.ENEMY) ? "Enemy: " : "Character: ";
+            int level = (p == PartyType.ENEMY) ? averageLevel : 1;
+            
+            switch (randomClass)
+            {
+                case 1:                    
+                    _members.Add(new Black_Mage(name + i.ToString(), 1));
+                    break;
+                case 2:
+                    _members.Add(new Archer(name + i.ToString(), 1));
+                    break;
+                case 3:
+                    _members.Add(new Blue_Mage(name + i.ToString(), 1));
+                    break;
+                case 4:
+                    _members.Add(new Fighter(name + i.ToString(), 1));
+                    break;
+                case 5:
+                    _members.Add(new Paladin(name + i.ToString(), 1));
+                    break;
+                case 6:
+                    _members.Add(new White_Mage(name + i.ToString(), 1));
+                    break;
+                default:
+                    break;
+            }
+        } 
+
+        
+    }
+}
 /// <summary>
 /// 
 /// </summary>

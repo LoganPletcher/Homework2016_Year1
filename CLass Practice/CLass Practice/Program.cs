@@ -22,7 +22,7 @@ namespace CLass_Practice
 
         static bool init(Finite_State_Machine FSM)
         {
-            Save_and_Load<List<Unit>> sl = new Save_and_Load<List<Unit>>();
+            Save_and_Load<Party> sl = new Save_and_Load<Party>();
             FSM.ChangeStates("init->Prebattle");
             FSM.info();
             Application.EnableVisualStyles();
@@ -32,50 +32,73 @@ namespace CLass_Practice
             return false;
         }
 
-        static bool Prebattle (Finite_State_Machine FSM, Save_and_Load<List<Unit>> sl)
+        static bool Prebattle(Finite_State_Machine FSM, Save_and_Load<Party> sl)
         {
             bool TeamABuilt = false;
-            List<Unit> teamA = new List<Unit>();
-            Application.Run(new LoadingScene(teamA));
-            int AverageLevel;
-            Random rng = new Random();
-            if (teamA.Count == 3) { TeamABuilt = true; }
-            else { TeamABuilt = false; }
-            if (TeamABuilt == false)
-            {
-                for (int i = 0; i < 3; i++)
-                {
-                    int Cclass = rng.Next(1, 7);
-                    if (Cclass == 1) { Black_Mage Character = new Black_Mage("Character" + i, 1); teamA.Add(Character); }
-                    else if (Cclass == 2) { Archer Character = new Archer("Character" + i, 1); teamA.Add(Character); }
-                    else if (Cclass == 3) { Blue_Mage Character = new Blue_Mage("Character" + i, 1); teamA.Add(Character); }
-                    else if (Cclass == 4) { Fighter Character = new Fighter("Character" + i, 1); teamA.Add(Character); }
-                    else if (Cclass == 5) { Paladin Character = new Paladin("Character" + i, 1); teamA.Add(Character); }
-                    else if (Cclass == 6) { White_Mage Character = new White_Mage("Character" + i, 1); teamA.Add(Character); }
-                }
-            }
-            AverageLevel = (teamA[0].Level + teamA[1].Level + teamA[2].Level) / 3;
-            List<Unit> teamB = new List<Unit>();
-            for (int i = 0; i < 3; i++)
-            {
-                int Cclass = rng.Next(1, 7);
-                if (Cclass == 1) { Black_Mage Enemy = new Black_Mage("Enemy" + i, AverageLevel); teamB.Add(Enemy); }
-                else if (Cclass == 2) { Archer Enemy = new Archer("Enemy" + i, AverageLevel); teamB.Add(Enemy); }
-                else if (Cclass == 3) { Blue_Mage Enemy = new Blue_Mage("Enemy" + i, AverageLevel); teamB.Add(Enemy); }
-                else if (Cclass == 4) { Fighter Enemy = new Fighter("Enemy" + i, AverageLevel); teamB.Add(Enemy); }
-                else if (Cclass == 5) { Paladin Enemy = new Paladin("Enemy" + i, AverageLevel); teamB.Add(Enemy); }
-                else if (Cclass == 6) { White_Mage Enemy = new White_Mage("Enemy" + i, AverageLevel); teamB.Add(Enemy); }
-            }
+            Party partyA = new Party();
+            Party partyB = new Party();
+            // Party teamA = new Party();
+            //Party teamB = new Party();
+            Application.Run(new LoadingScene(partyA));
+
+            int sum = 0;
+            foreach (Unit u in partyA.Members)            
+                sum += u.Level;
+            
+
+
+            TeamABuilt = (partyA.Members.Count >= 3) ? true : false;
+            if (!TeamABuilt)            
+                partyA = new Party(PartyType.CHARACTER, 1);
+
+
+            int avgLvl = sum / partyA.Members.Count;
+            partyB = new Party(PartyType.ENEMY, avgLvl);
+
+            //if (partyA.Members.Count >= 3) { TeamABuilt = true; }
+            //else { TeamABuilt = false; }
+            /*
+            //int AverageLevel;
+            //Random rng = new Random();
+            
+            //if (TeamABuilt == false)
+            //{
+            //    for (int i = 0; i < 3; i++)
+            //    {
+            //        int Cclass = rng.Next(1, 7);
+            //        if (Cclass == 1) { Black_Mage Character = new Black_Mage("Character" + i, 1); teamA.Add(Character); }
+            //        else if (Cclass == 2) { Archer Character = new Archer("Character" + i, 1); teamA.Add(Character); }
+            //        else if (Cclass == 3) { Blue_Mage Character = new Blue_Mage("Character" + i, 1); teamA.Add(Character); }
+            //        else if (Cclass == 4) { Fighter Character = new Fighter("Character" + i, 1); teamA.Add(Character); }
+            //        else if (Cclass == 5) { Paladin Character = new Paladin("Character" + i, 1); teamA.Add(Character); }
+            //        else if (Cclass == 6) { White_Mage Character = new White_Mage("Character" + i, 1); teamA.Add(Character); }
+            //    }
+            //}
+            //AverageLevel = (teamA[0].Level + teamA[1].Level + teamA[2].Level) / 3;
+            //Party teamB = new Party();
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    int Cclass = rng.Next(1, 7);
+            //    if (Cclass == 1) { Black_Mage Enemy = new Black_Mage("Enemy" + i, AverageLevel); teamB.Add(Enemy); }
+            //    else if (Cclass == 2) { Archer Enemy = new Archer("Enemy" + i, AverageLevel); teamB.Add(Enemy); }
+            //    else if (Cclass == 3) { Blue_Mage Enemy = new Blue_Mage("Enemy" + i, AverageLevel); teamB.Add(Enemy); }
+            //    else if (Cclass == 4) { Fighter Enemy = new Fighter("Enemy" + i, AverageLevel); teamB.Add(Enemy); }
+            //    else if (Cclass == 5) { Paladin Enemy = new Paladin("Enemy" + i, AverageLevel); teamB.Add(Enemy); }
+            //    else if (Cclass == 6) { White_Mage Enemy = new White_Mage("Enemy" + i, AverageLevel); teamB.Add(Enemy); }
+            //}
             //Application.Run(new BattleScene(teamA, teamB));
+            */
             FSM.ChangeStates("Prebattle->teamAturn");
             FSM.info();
-            if(Convert.ToString(FSM.CurrentState) == Convert.ToString(PlayerStates.teamAturn))
-            { teamAturn(FSM, sl, teamA, teamB); }
+            if (Convert.ToString(FSM.CurrentState) == Convert.ToString(PlayerStates.teamAturn))
+            {
+                teamAturn(FSM, sl, partyA, partyB);
+            }
             Environment.Exit(0);
             return false;
         }
 
-        static bool teamAturn(Finite_State_Machine FSM, Save_and_Load<List<Unit>> sl, List<Unit> teamA, List<Unit> teamB)
+        static bool teamAturn(Finite_State_Machine FSM, Save_and_Load<Party> sl, Party teamA, Party teamB)
         {
             bool FirstUse = false;
             for (int i = 0; i < 3; i++)
@@ -100,7 +123,7 @@ namespace CLass_Practice
             FSM.AddState(PlayerStates.teamAturn);
             FSM.AddState(PlayerStates.teamBturn);
             FSM.AddState(PlayerStates.victory);
-            
+
             FSM.AddTransition(PlayerStates.init, PlayerStates.Prebattle);
             FSM.AddTransition(PlayerStates.Prebattle, PlayerStates.teamAturn);
             FSM.AddTransition(PlayerStates.teamAturn, PlayerStates.teamBturn);

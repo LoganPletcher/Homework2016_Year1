@@ -19,8 +19,13 @@ namespace CLass_Practice
         public List<Unit> m_TA = new List<Unit>();
         public List<Unit> m_TB = new List<Unit>();
 
-        public BattleScene(List<Unit> teamA, List<Unit> teamB, int CU, bool FirstUse)
+        public BattleScene(Party team1, Party team2, int CU, bool FirstUse)
         {
+            List<Unit> teamA = new List<Unit>();
+            List<Unit> teamB = new List<Unit>();
+            teamA = team1.Members;
+            teamB = team2.Members;
+
             m_TA = teamA;
             m_TB = teamB;
             InitializeComponent();
@@ -242,6 +247,17 @@ namespace CLass_Practice
                 teamBcharacter_3.BackColor = Color.Transparent;
                 SelectedUnit = m_TA[2];
             }
+        }
+
+        private void save_button_Click(object sender, EventArgs e)
+        {
+            Save_and_Load<Party> saveObject = new Save_and_Load<Party>();
+            Party p1 = new Party();
+            p1.Members = m_TA;
+            Party p2 = new Party();
+            p2.Members = m_TB;
+            saveObject.Save(p1);
+            saveObject.Save(p2);
         }
     }
 }
