@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.Windows.Forms;
+using System.Threading;
 
 /// <summary>
 /// The Base interface for an object.
@@ -206,7 +207,7 @@ public class Party
         Random r = new Random();
         for (int i = 0; i < 3; ++i)
         {
-          
+            Thread.Sleep(20);
             int randomClass = r.Next(1, 7);
             string name = (p == PartyType.ENEMY) ? "Enemy: " : "Character: ";
             int level = (p == PartyType.ENEMY) ? averageLevel : 1;
@@ -338,6 +339,7 @@ public class Archer : Unit
             enemy.Health -= this.Attack + 2;
             TB.Text += (this.Name + " dealt " + (this.Attack + 3) + " ranged damage to " + enemy.Name + ".\r\n");
         }
+        TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
 
     public override void Ability2(Unit enemy, RichTextBox TB)
@@ -345,12 +347,14 @@ public class Archer : Unit
         enemy.Health -= this.Attack;
         TB.Text += (this.Name + " dealt " + this.Attack + " ranged damage to " + enemy.Name + ".\r\n");
         enemy.Stunned = 2;
+        TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
 
     public override void Ability3(Unit enemy, RichTextBox TB)
     {
         enemy.Health -= this.Attack + 6;
         TB.Text += (this.Name + " dealt " + (this.Attack + 6) + " ranged damage to " + enemy.Name + ".\r\n");
+        TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
 
     public override void LevelingUp()
@@ -394,6 +398,7 @@ public class Blue_Mage : Unit
     {
         enemy.DamageOverTime = 2;
         enemy.Stunned = 2;
+        TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
 
     public override void Ability2(Unit enemy, RichTextBox TB)
@@ -401,6 +406,7 @@ public class Blue_Mage : Unit
         enemy.Health -= (this.Attack + 2);
         TB.Text += (this.Name + " dealt " + (this.Attack + 2) + " magic damage to " + enemy.Name + ".\r\n");
         enemy.Stunned = 4;
+        TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
 
     public override void Ability3(Unit enemy, RichTextBox TB)
@@ -408,6 +414,7 @@ public class Blue_Mage : Unit
         enemy.Health -= this.Attack;
         TB.Text += (this.Name + " dealt " + this.Attack + " magic damage to " + enemy.Name + ".\r\n");
         enemy.DamageOverTime = 4;
+        TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
 
     public override void LevelingUp()
@@ -450,6 +457,7 @@ public class Fighter : Unit
     {
         enemy.Health -= (this.Attack + 6);
         TB.Text += (this.Name + " dealt " + (this.Attack + 6) + " melee damage to " + enemy.Name + ".\r\n");
+        TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
 
     public override void Ability2(Unit enemy, RichTextBox TB)
@@ -457,12 +465,14 @@ public class Fighter : Unit
         enemy.Health -= (this.Attack + 2);
         TB.Text += (this.Name + " dealt " + (this.Attack + 2) + " melee damage to " + enemy.Name + ".\r\n");
         enemy.DamageOverTime = 2;
+        TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
 
     public override void Ability3(Unit enemy, RichTextBox TB)
     {
         enemy.Health -= (this.Attack + this.Attack);
         TB.Text += (this.Name + " dealt " + (this.Attack + this.Attack) + " melee damage to " + enemy.Name + ".\r\n");
+        TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
 
     public override void LevelingUp()
@@ -506,6 +516,7 @@ public class Paladin : Unit
         enemy.Health -= (this.Attack + 10);
         TB.Text += (this.Name + " dealt " + (this.Attack + 10) + " melee damage to " + enemy.Name + ".\r\n");
         enemy.Stunned = 0;
+        TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
 
     public override void Ability2(Unit enemy, RichTextBox TB)
@@ -513,12 +524,14 @@ public class Paladin : Unit
         enemy.Health -= (this.Attack + 10);
         TB.Text += (this.Name + " dealt " + (this.Attack + 10) + " melee damage to " + enemy.Name + ".\r\n");
         enemy.DamageOverTime = 0;
+        TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
 
     public override void Ability3(Unit enemy, RichTextBox TB)
     {
         enemy.Health -= (this.Attack + 6);
         TB.Text += (this.Name + " dealt " + (this.Attack + 6) + " melee damage to " + enemy.Name + ".\r\n");
+        TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
 
     public override void LevelingUp()
@@ -559,17 +572,30 @@ public class White_Mage : Unit
 
     public override void Ability1(Unit enemy, RichTextBox TB)
     {
-        enemy.Health += this.Attack + 10;
+        if ((enemy.Health < enemy.MaxHealth) && (enemy.Health > 0))
+        {
+            enemy.Health += this.Attack + 10;
+            if (enemy.Health > enemy.MaxHealth)
+                enemy.Health = enemy.MaxHealth;
+            TB.Text += (this.Name + " healed " + enemy.Name + " for " + (this.Attack + 10) + " points.\r\n");
+        }
+        else
+            TB.Text += (enemy.Name + " is already at max health or is dead.\r\n");
+        TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
 
     public override void Ability2(Unit enemy, RichTextBox TB)
     {
         enemy.Stunned = 0;
+        TB.Text += (this.Name + " cured " + enemy.Name + " of being stunned.\r\n");
+        TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
 
     public override void Ability3(Unit enemy, RichTextBox TB)
     {
         enemy.DamageOverTime = 0;
+        TB.Text += (this.Name + " cured " + enemy.Name + " of harmful side effects.\r\n");
+        TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
 
     public override void LevelingUp()

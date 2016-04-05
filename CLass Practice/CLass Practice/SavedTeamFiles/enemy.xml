@@ -3,7 +3,7 @@
   <Members>
     <Unit xsi:type="White_Mage">
       <rng />
-      <Name>Enemy: 0</Name>
+      <Name>Enemu: 0</Name>
       <Attack>2</Attack>
       <DamageOverTime>0</DamageOverTime>
       <MaxHealth>25</MaxHealth>
@@ -16,7 +16,7 @@
     </Unit>
     <Unit xsi:type="Paladin">
       <rng />
-      <Name>Enemy: 1</Name>
+      <Name>Enemu: 1</Name>
       <Attack>6</Attack>
       <DamageOverTime>0</DamageOverTime>
       <MaxHealth>25</MaxHealth>
@@ -29,7 +29,7 @@
     </Unit>
     <Unit xsi:type="White_Mage">
       <rng />
-      <Name>Enemy: 2</Name>
+      <Name>Enemu: 2</Name>
       <Attack>2</Attack>
       <DamageOverTime>0</DamageOverTime>
       <MaxHealth>25</MaxHealth>

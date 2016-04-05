@@ -21,13 +21,9 @@ namespace CLass_Practice
 
         public BattleScene(Party team1, Party team2, int CU, bool FirstUse)
         {
-            List<Unit> teamA = new List<Unit>();
-            List<Unit> teamB = new List<Unit>();
-            teamA = team1.Members;
-            teamB = team2.Members;
-
-            m_TA = teamA;
-            m_TB = teamB;
+            
+            m_TA = team1.Members;
+            m_TB = team2.Members;
             InitializeComponent();
             List<PictureBox> sideAimages = new List<PictureBox>();
             sideAimages.Add(teamAcharacter_1);
@@ -37,6 +33,10 @@ namespace CLass_Practice
             sideBimages.Add(teamBcharacter_1);
             sideBimages.Add(teamBcharacter_2);
             sideBimages.Add(teamBcharacter_3);
+            List<int> sideBimageLefts = new List<int>();
+            sideBimageLefts.Add(teamBcharacter_1.Left);
+            sideBimageLefts.Add(teamBcharacter_2.Left);
+            sideBimageLefts.Add(teamBcharacter_3.Left);
             List<TextBox> sideAinfoboxes = new List<TextBox>();
             sideAinfoboxes.Add(teamAcharacter_1_infobox);
             sideAinfoboxes.Add(teamAcharacter_2_infobox);
@@ -45,51 +45,158 @@ namespace CLass_Practice
             sideBinfoboxes.Add(teamBcharacter_1_infobox);
             sideBinfoboxes.Add(teamBcharacter_2_infobox);
             sideBinfoboxes.Add(teamBcharacter_3_infobox);
+            List<int> sideBtextLefts = new List<int>();
+            sideBtextLefts.Add(teamBcharacter_1_infobox.Left);
+            sideBtextLefts.Add(teamBcharacter_2_infobox.Left);
+            sideBtextLefts.Add(teamBcharacter_3_infobox.Left);
             for (int i = 0; i < 3; i++)
             {
-                if (teamA[i].CharacterClass == 1)
+                if (team1.Members[i].CharacterClass == 1)
                 { sideAimages[i].BackgroundImage = Properties.Resources.Black_Mage1; }
-                else if (teamA[i].CharacterClass == 2)
+                else if (team1.Members[i].CharacterClass == 2)
                 { sideAimages[i].BackgroundImage = Properties.Resources.Archer1; }
-                else if (teamA[i].CharacterClass == 3)
+                else if (team1.Members[i].CharacterClass == 3)
                 { sideAimages[i].BackgroundImage = Properties.Resources.Blue_Mage1; }
-                else if (teamA[i].CharacterClass == 4)
+                else if (team1.Members[i].CharacterClass == 4)
                 { sideAimages[i].BackgroundImage = Properties.Resources.Warrior1; }
-                else if (teamA[i].CharacterClass == 5)
+                else if (team1.Members[i].CharacterClass == 5)
                 { sideAimages[i].BackgroundImage = Properties.Resources.Paladin1; }
-                else if (teamA[i].CharacterClass == 6)
+                else if (team1.Members[i].CharacterClass == 6)
                 { sideAimages[i].BackgroundImage = Properties.Resources.White_Mage1; }
-                sideAinfoboxes[i].Text += teamA[i].Name + " Level: ";
-                sideAinfoboxes[i].Text += teamA[i].Level + " Class: ";
-                sideAinfoboxes[i].Text += Convert.ToString(teamA[i].GetType());
-                sideAinfoboxes[i].Text += "\r\nHP: " + teamA[i].Health + "/" + teamA[i].MaxHealth;
+                sideAinfoboxes[i].Text += team1.Members[i].Name + " Level: ";
+                sideAinfoboxes[i].Text += team1.Members[i].Level + " Class: ";
+                sideAinfoboxes[i].Text += Convert.ToString(team1.Members[i].GetType());
+                sideAinfoboxes[i].Text += "\r\nHP: " + team1.Members[i].Health + "/" + team1.Members[i].MaxHealth;
             }
             for (int i = 0; i < 3; i++)
             {
-                if (teamB[i].CharacterClass == 1)
+                if (team2.Members[i].CharacterClass == 1)
                 { sideBimages[i].BackgroundImage = Properties.Resources.Black_Mage2; }
-                else if (teamB[i].CharacterClass == 2)
+                else if (team2.Members[i].CharacterClass == 2)
                 { sideBimages[i].BackgroundImage = Properties.Resources.Archer2; }
-                else if (teamB[i].CharacterClass == 3)
+                else if (team2.Members[i].CharacterClass == 3)
                 { sideBimages[i].BackgroundImage = Properties.Resources.Blue_Mage2; }
-                else if (teamB[i].CharacterClass == 4)
+                else if (team2.Members[i].CharacterClass == 4)
                 { sideBimages[i].BackgroundImage = Properties.Resources.Warrior2; }
-                else if (teamB[i].CharacterClass == 5)
+                else if (team2.Members[i].CharacterClass == 5)
                 { sideBimages[i].BackgroundImage = Properties.Resources.Paladin2; }
-                else if (teamB[i].CharacterClass == 6)
+                else if (team2.Members[i].CharacterClass == 6)
                 { sideBimages[i].BackgroundImage = Properties.Resources.White_Mage2; }
-                sideBinfoboxes[i].Text += teamB[i].Name + " Level: ";
-                sideBinfoboxes[i].Text += teamB[i].Level + " Class: ";
-                sideBinfoboxes[i].Text += Convert.ToString(teamB[i].GetType());
-                sideBinfoboxes[i].Text += "\r\nHP: " + teamB[i].Health + "/" + teamB[i].MaxHealth;
+                sideBinfoboxes[i].Text += team2.Members[i].Name + " Level: ";
+                sideBinfoboxes[i].Text += team2.Members[i].Level + " Class: ";
+                sideBinfoboxes[i].Text += Convert.ToString(team2.Members[i].GetType());
+                sideBinfoboxes[i].Text += "\r\nHP: " + team2.Members[i].Health + "/" + team2.Members[i].MaxHealth;
             }
-            CurrentUnit = teamA[CU];
+            CurrentUnit = team1.Members[CU];
             
             BattleEvents.LoadFile(@"..\..\Resources\BattleEvents.rtf");
             if (FirstUse)
             {
                 BattleEvents.Clear();
                 BattleEvents.SaveFile(@"..\..\Resources\BattleEvents.rtf");
+            }
+            this.WindowState = FormWindowState.Maximized;
+            if(this.Height < 1080)
+            {
+                if (this.Height < 900)
+                {
+                    if (this.Height < 720)
+                        this.BattleEvents.Width = 330;
+                    else
+                        this.BattleEvents.Width = 550;
+                }
+                else
+                    this.BattleEvents.Width = 710;
+            }
+            foreach (PictureBox pb in sideAimages)
+            {
+                if (this.Height < 1080)
+                {
+                    pb.Top = (pb.Top * Height) / 970;
+                    pb.Left = (pb.Left * Width) / 1830;
+                    if (this.Height < 900)
+                    {
+                        if (this.Height < 720)
+                        {
+                            pb.Height = (int)((double)321 / 1.8);
+                            pb.Width = (int)((double)291 / 1.8);
+                        }
+                        else
+                        {
+                            pb.Height = (int)((double)321 / 1.5);
+                            pb.Width = (int)((double)291 / 1.5);
+                        }
+                    }
+                    else
+                    {
+                        pb.Height = (int)((double)321 / 1.2);
+                        pb.Width = (int)((double)291 / 1.2);
+                    }
+                }
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                if (this.Height < 1080)
+                {
+                    sideBimages[i].Top = (sideBimages[i].Top * Height) / 970;
+                    sideBimages[i].Left = ((sideBimageLefts[i] * Width) / 1830) - 36;
+                    if (this.Height < 900)
+                    {
+                        if (this.Height < 720)
+                        {
+                            sideBimages[i].Height = (int)((double)321 / 1.8);
+                            sideBimages[i].Width = (int)((double)291 / 1.8);
+                        }
+                        else
+                        {
+                            sideBimages[i].Height = (int)((double)321 / 1.5);
+                            sideBimages[i].Width = (int)((double)291 / 1.5);
+                        }
+                    }
+                    else
+                    {
+                        sideBimages[i].Height = (int)((double)321 / 1.2);
+                        sideBimages[i].Width = (int)((double)291 / 1.2);
+                    }
+                }
+            }
+            foreach (TextBox pb in sideAinfoboxes)
+            {
+                if (this.Height < 1080)
+                {
+                    pb.Top = ((pb.Top * Height) / 970) - 20;
+                    pb.Left = (pb.Left * Width) / 1830;
+                    if (this.Height < 900)
+                    {
+                        if (this.Height < 720)
+                        {
+                            pb.Width = (int)((double)291 / 1.8);
+                        }
+                        else
+                            pb.Width = (int)((double)291 / 1.5);
+                    }
+                    else
+                        pb.Width = (int)((double)291 / 1.2);
+                }
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                if (this.Height < 1080)
+                {
+                    sideBinfoboxes[i].Top = ((sideBinfoboxes[i].Top * Height) / 970) - 20;
+                    sideBinfoboxes[i].Left = ((sideBtextLefts[i] * Width) / 1830) - 36;
+                    if (this.Height < 900)
+                    {
+                        if (this.Height < 720)
+                        {
+                            sideBinfoboxes[i].Width = (int)((double)291 / 1.8);
+                        }
+                        else
+                            sideBinfoboxes[i].Width = (int)((double)291 / 1.5);
+                    }
+                    else
+                        sideBinfoboxes[i].Width = (int)((double)291 / 1.2);
+                }
             }
         }
 
@@ -99,21 +206,26 @@ namespace CLass_Practice
                 BattleEvents.Clear();
             if(SelectedUnit != null)
             {
-                CurrentUnit.Ability1(SelectedUnit, BattleEvents);
-                for (int i = 0; i < 3; i++)
+                if (SelectedUnit.Health > 0)
                 {
-                    if (m_TB[i].Name == CurrentUnit.Name)
-                        m_TB[i] = CurrentUnit;
-                    //BattleEvents.SaveFile(@"..\..\Resources\BattleEvents.rtf");
-                    this.Close();
+                    CurrentUnit.Ability1(SelectedUnit, BattleEvents);
+                    for (int i = 0; i < 3; i++)
+                    {
+                        if (m_TB[i].Name == CurrentUnit.Name)
+                            m_TB[i] = CurrentUnit;
+                        //BattleEvents.SaveFile(@"..\..\Resources\BattleEvents.rtf");
+                        this.Close();
+                    }
+                    for (int i = 0; i < 3; i++)
+                    {
+                        if (m_TA[i].Name == SelectedUnit.Name)
+                            m_TA[i] = SelectedUnit;
+                        //BattleEvents.SaveFile(@"..\..\Resources\BattleEvents.rtf");
+                        this.Close();
+                    }
                 }
-                for (int i = 0; i < 3; i++)
-                {
-                    if (m_TA[i].Name == CurrentUnit.Name)
-                        m_TA[i] = CurrentUnit;
-                    //BattleEvents.SaveFile(@"..\..\Resources\BattleEvents.rtf");
-                    this.Close();
-                }
+                else
+                    BattleEvents.Text += "Unit is already dead. Choose another one.\r\n";
             }
         }
 
@@ -123,21 +235,26 @@ namespace CLass_Practice
                 BattleEvents.Clear();
             if (SelectedUnit != null)
             {
-                CurrentUnit.Ability2(SelectedUnit, BattleEvents);
-                for (int i = 0; i < 3; i++)
+                if (SelectedUnit.Health > 0)
                 {
-                    if (m_TB[i].Name == CurrentUnit.Name)
-                        m_TB[i] = CurrentUnit;
-                    //BattleEvents.SaveFile(@"..\..\Resources\BattleEvents.rtf");
-                    this.Close();
+                    CurrentUnit.Ability2(SelectedUnit, BattleEvents);
+                    for (int i = 0; i < 3; i++)
+                    {
+                        if (m_TB[i].Name == SelectedUnit.Name)
+                            m_TB[i] = SelectedUnit;
+                        //BattleEvents.SaveFile(@"..\..\Resources\BattleEvents.rtf");
+                        this.Close();
+                    }
+                    for (int i = 0; i < 3; i++)
+                    {
+                        if (m_TA[i].Name == SelectedUnit.Name)
+                            m_TA[i] = SelectedUnit;
+                        //BattleEvents.SaveFile(@"..\..\Resources\BattleEvents.rtf");
+                        this.Close();
+                    }
                 }
-                for (int i = 0; i < 3; i++)
-                {
-                    if (m_TA[i].Name == CurrentUnit.Name)
-                        m_TA[i] = CurrentUnit;
-                    //BattleEvents.SaveFile(@"..\..\Resources\BattleEvents.rtf");
-                    this.Close();
-                }
+                else
+                    BattleEvents.Text += "Unit is already dead. Choose another one.\r\n";
             }
         }
 
@@ -147,21 +264,26 @@ namespace CLass_Practice
                 BattleEvents.Clear();
             if (SelectedUnit != null)
             {
-                CurrentUnit.Ability3(SelectedUnit, BattleEvents);
-                for (int i = 0; i < 3; i++)
+                if (SelectedUnit.Health > 0)
                 {
-                    if (m_TB[i].Name == CurrentUnit.Name)
-                        m_TB[i] = CurrentUnit;
-                    //BattleEvents.SaveFile(@"..\..\Resources\BattleEvents.rtf");
-                    this.Close();
+                    CurrentUnit.Ability3(SelectedUnit, BattleEvents);
+                    for (int i = 0; i < 3; i++)
+                    {
+                        if (m_TB[i].Name == SelectedUnit.Name)
+                            m_TB[i] = SelectedUnit;
+                        //BattleEvents.SaveFile(@"..\..\Resources\BattleEvents.rtf");
+                        this.Close();
+                    }
+                    for (int i = 0; i < 3; i++)
+                    {
+                        if (m_TA[i].Name == SelectedUnit.Name)
+                            m_TA[i] = SelectedUnit;
+                        //BattleEvents.SaveFile(@"..\..\Resources\BattleEvents.rtf");
+                        this.Close();
+                    }
                 }
-                for (int i = 0; i < 3; i++)
-                {
-                    if (m_TA[i].Name == CurrentUnit.Name)
-                        m_TA[i] = CurrentUnit;
-                    //BattleEvents.SaveFile(@"..\..\Resources\BattleEvents.rtf");
-                    this.Close();
-                }
+                else
+                    BattleEvents.Text += "Unit is already dead. Choose another one.\r\n";
             }
         }
 
@@ -177,6 +299,7 @@ namespace CLass_Practice
                 teamAcharacter_3.BackColor = Color.Transparent;
                 SelectedUnit = m_TB[0];
             }
+            Console.WriteLine(this.Height);
         }
 
         private void teamBcharacter_2_Click(object sender, EventArgs e)
@@ -219,6 +342,8 @@ namespace CLass_Practice
                 teamBcharacter_3.BackColor = Color.Transparent;
                 SelectedUnit = m_TA[0];
             }
+            Console.WriteLine(this.Height);
+            Console.WriteLine(this.Width);
         }
 
         private void teamAcharacter_2_Click(object sender, EventArgs e)

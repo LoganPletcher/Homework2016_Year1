@@ -44,7 +44,6 @@
             this.teamBcharacter_1_infobox = new System.Windows.Forms.TextBox();
             this.teamBcharacter_2_infobox = new System.Windows.Forms.TextBox();
             this.teamBcharacter_3_infobox = new System.Windows.Forms.TextBox();
-            this.save_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.teamAcharacter_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamAcharacter_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamBcharacter_3)).BeginInit();
@@ -55,6 +54,8 @@
             // 
             // Ability1Button
             // 
+            this.Ability1Button.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.Ability1Button.AutoSize = true;
             this.Ability1Button.BackColor = System.Drawing.Color.Transparent;
             this.Ability1Button.BackgroundImage = global::CLass_Practice.Properties.Resources.Battleback_mountain_a;
             this.Ability1Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -69,6 +70,8 @@
             // 
             // Ability2Button
             // 
+            this.Ability2Button.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.Ability2Button.AutoSize = true;
             this.Ability2Button.BackColor = System.Drawing.Color.Transparent;
             this.Ability2Button.BackgroundImage = global::CLass_Practice.Properties.Resources.Battleback_mountain_a;
             this.Ability2Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -82,6 +85,8 @@
             // 
             // Ability3Button
             // 
+            this.Ability3Button.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.Ability3Button.AutoSize = true;
             this.Ability3Button.BackColor = System.Drawing.Color.Transparent;
             this.Ability3Button.BackgroundImage = global::CLass_Practice.Properties.Resources.Battleback_mountain_a;
             this.Ability3Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -95,17 +100,18 @@
             // 
             // BattleEvents
             // 
+            this.BattleEvents.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BattleEvents.Location = new System.Drawing.Point(12, 844);
             this.BattleEvents.Name = "BattleEvents";
-            this.BattleEvents.Size = new System.Drawing.Size(855, 82);
+            this.BattleEvents.Size = new System.Drawing.Size(850, 82);
             this.BattleEvents.TabIndex = 16;
             this.BattleEvents.Text = "";
             // 
             // teamAcharacter_2
             // 
             this.teamAcharacter_2.BackColor = System.Drawing.Color.Transparent;
-            this.teamAcharacter_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.teamAcharacter_2.Location = new System.Drawing.Point(430, 415);
+            this.teamAcharacter_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.teamAcharacter_2.Location = new System.Drawing.Point(430, 400);
             this.teamAcharacter_2.Name = "teamAcharacter_2";
             this.teamAcharacter_2.Size = new System.Drawing.Size(291, 321);
             this.teamAcharacter_2.TabIndex = 15;
@@ -115,8 +121,8 @@
             // teamAcharacter_3
             // 
             this.teamAcharacter_3.BackColor = System.Drawing.Color.Transparent;
-            this.teamAcharacter_3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.teamAcharacter_3.Location = new System.Drawing.Point(42, 415);
+            this.teamAcharacter_3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.teamAcharacter_3.Location = new System.Drawing.Point(42, 400);
             this.teamAcharacter_3.Name = "teamAcharacter_3";
             this.teamAcharacter_3.Size = new System.Drawing.Size(291, 321);
             this.teamAcharacter_3.TabIndex = 14;
@@ -125,9 +131,10 @@
             // 
             // teamBcharacter_3
             // 
+            this.teamBcharacter_3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.teamBcharacter_3.BackColor = System.Drawing.Color.Transparent;
-            this.teamBcharacter_3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.teamBcharacter_3.Location = new System.Drawing.Point(1487, 415);
+            this.teamBcharacter_3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.teamBcharacter_3.Location = new System.Drawing.Point(1487, 400);
             this.teamBcharacter_3.Name = "teamBcharacter_3";
             this.teamBcharacter_3.Size = new System.Drawing.Size(291, 321);
             this.teamBcharacter_3.TabIndex = 13;
@@ -136,9 +143,10 @@
             // 
             // teamBcharacter_2
             // 
+            this.teamBcharacter_2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.teamBcharacter_2.BackColor = System.Drawing.Color.Transparent;
-            this.teamBcharacter_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.teamBcharacter_2.Location = new System.Drawing.Point(1119, 415);
+            this.teamBcharacter_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.teamBcharacter_2.Location = new System.Drawing.Point(1099, 400);
             this.teamBcharacter_2.Name = "teamBcharacter_2";
             this.teamBcharacter_2.Size = new System.Drawing.Size(291, 321);
             this.teamBcharacter_2.TabIndex = 12;
@@ -147,9 +155,10 @@
             // 
             // teamBcharacter_1
             // 
+            this.teamBcharacter_1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.teamBcharacter_1.BackColor = System.Drawing.Color.Transparent;
-            this.teamBcharacter_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.teamBcharacter_1.Location = new System.Drawing.Point(1303, 28);
+            this.teamBcharacter_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.teamBcharacter_1.Location = new System.Drawing.Point(1303, 10);
             this.teamBcharacter_1.Name = "teamBcharacter_1";
             this.teamBcharacter_1.Size = new System.Drawing.Size(291, 321);
             this.teamBcharacter_1.TabIndex = 11;
@@ -159,8 +168,8 @@
             // teamAcharacter_1
             // 
             this.teamAcharacter_1.BackColor = System.Drawing.Color.Transparent;
-            this.teamAcharacter_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.teamAcharacter_1.Location = new System.Drawing.Point(228, 28);
+            this.teamAcharacter_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.teamAcharacter_1.Location = new System.Drawing.Point(228, 10);
             this.teamAcharacter_1.Name = "teamAcharacter_1";
             this.teamAcharacter_1.Size = new System.Drawing.Size(291, 321);
             this.teamAcharacter_1.TabIndex = 1;
@@ -171,71 +180,64 @@
             // 
             this.teamAcharacter_1_infobox.BackColor = System.Drawing.Color.Green;
             this.teamAcharacter_1_infobox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.teamAcharacter_1_infobox.Location = new System.Drawing.Point(228, 355);
+            this.teamAcharacter_1_infobox.Location = new System.Drawing.Point(228, 335);
             this.teamAcharacter_1_infobox.Multiline = true;
             this.teamAcharacter_1_infobox.Name = "teamAcharacter_1_infobox";
-            this.teamAcharacter_1_infobox.Size = new System.Drawing.Size(291, 32);
+            this.teamAcharacter_1_infobox.Size = new System.Drawing.Size(291, 40);
             this.teamAcharacter_1_infobox.TabIndex = 17;
             // 
             // teamAcharacter_2_infobox
             // 
             this.teamAcharacter_2_infobox.BackColor = System.Drawing.Color.Green;
             this.teamAcharacter_2_infobox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.teamAcharacter_2_infobox.Location = new System.Drawing.Point(430, 742);
+            this.teamAcharacter_2_infobox.Location = new System.Drawing.Point(430, 725);
             this.teamAcharacter_2_infobox.Multiline = true;
             this.teamAcharacter_2_infobox.Name = "teamAcharacter_2_infobox";
-            this.teamAcharacter_2_infobox.Size = new System.Drawing.Size(291, 32);
+            this.teamAcharacter_2_infobox.Size = new System.Drawing.Size(291, 40);
             this.teamAcharacter_2_infobox.TabIndex = 18;
             // 
             // teamAcharacter_3_infobox
             // 
             this.teamAcharacter_3_infobox.BackColor = System.Drawing.Color.Green;
             this.teamAcharacter_3_infobox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.teamAcharacter_3_infobox.Location = new System.Drawing.Point(42, 742);
+            this.teamAcharacter_3_infobox.Location = new System.Drawing.Point(42, 725);
             this.teamAcharacter_3_infobox.Multiline = true;
             this.teamAcharacter_3_infobox.Name = "teamAcharacter_3_infobox";
-            this.teamAcharacter_3_infobox.Size = new System.Drawing.Size(291, 32);
+            this.teamAcharacter_3_infobox.Size = new System.Drawing.Size(291, 40);
             this.teamAcharacter_3_infobox.TabIndex = 19;
             // 
             // teamBcharacter_1_infobox
             // 
+            this.teamBcharacter_1_infobox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.teamBcharacter_1_infobox.BackColor = System.Drawing.Color.Red;
             this.teamBcharacter_1_infobox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.teamBcharacter_1_infobox.Location = new System.Drawing.Point(1303, 355);
+            this.teamBcharacter_1_infobox.Location = new System.Drawing.Point(1303, 340);
             this.teamBcharacter_1_infobox.Multiline = true;
             this.teamBcharacter_1_infobox.Name = "teamBcharacter_1_infobox";
-            this.teamBcharacter_1_infobox.Size = new System.Drawing.Size(291, 32);
+            this.teamBcharacter_1_infobox.Size = new System.Drawing.Size(291, 40);
             this.teamBcharacter_1_infobox.TabIndex = 20;
             // 
             // teamBcharacter_2_infobox
             // 
+            this.teamBcharacter_2_infobox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.teamBcharacter_2_infobox.BackColor = System.Drawing.Color.Red;
             this.teamBcharacter_2_infobox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.teamBcharacter_2_infobox.Location = new System.Drawing.Point(1119, 742);
+            this.teamBcharacter_2_infobox.Location = new System.Drawing.Point(1099, 730);
             this.teamBcharacter_2_infobox.Multiline = true;
             this.teamBcharacter_2_infobox.Name = "teamBcharacter_2_infobox";
-            this.teamBcharacter_2_infobox.Size = new System.Drawing.Size(291, 32);
+            this.teamBcharacter_2_infobox.Size = new System.Drawing.Size(291, 40);
             this.teamBcharacter_2_infobox.TabIndex = 21;
             // 
             // teamBcharacter_3_infobox
             // 
+            this.teamBcharacter_3_infobox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.teamBcharacter_3_infobox.BackColor = System.Drawing.Color.Red;
             this.teamBcharacter_3_infobox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.teamBcharacter_3_infobox.Location = new System.Drawing.Point(1487, 742);
+            this.teamBcharacter_3_infobox.Location = new System.Drawing.Point(1487, 730);
             this.teamBcharacter_3_infobox.Multiline = true;
             this.teamBcharacter_3_infobox.Name = "teamBcharacter_3_infobox";
-            this.teamBcharacter_3_infobox.Size = new System.Drawing.Size(291, 32);
+            this.teamBcharacter_3_infobox.Size = new System.Drawing.Size(291, 40);
             this.teamBcharacter_3_infobox.TabIndex = 22;
-            // 
-            // save_button
-            // 
-            this.save_button.Location = new System.Drawing.Point(648, 83);
-            this.save_button.Name = "save_button";
-            this.save_button.Size = new System.Drawing.Size(75, 23);
-            this.save_button.TabIndex = 23;
-            this.save_button.Text = "Save";
-            this.save_button.UseVisualStyleBackColor = true;
-            this.save_button.Click += new System.EventHandler(this.save_button_Click);
             // 
             // BattleScene
             // 
@@ -244,7 +246,9 @@
             this.BackgroundImage = global::CLass_Practice.Properties.Resources.Battleback_mountain_a;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1814, 932);
-            this.Controls.Add(this.save_button);
+            this.Controls.Add(this.Ability3Button);
+            this.Controls.Add(this.Ability2Button);
+            this.Controls.Add(this.Ability1Button);
             this.Controls.Add(this.teamBcharacter_3_infobox);
             this.Controls.Add(this.teamBcharacter_2_infobox);
             this.Controls.Add(this.teamBcharacter_1_infobox);
@@ -257,9 +261,6 @@
             this.Controls.Add(this.teamBcharacter_3);
             this.Controls.Add(this.teamBcharacter_2);
             this.Controls.Add(this.teamBcharacter_1);
-            this.Controls.Add(this.Ability3Button);
-            this.Controls.Add(this.Ability2Button);
-            this.Controls.Add(this.Ability1Button);
             this.Controls.Add(this.teamAcharacter_1);
             this.DoubleBuffered = true;
             this.Name = "BattleScene";
@@ -293,6 +294,5 @@
         private System.Windows.Forms.TextBox teamBcharacter_1_infobox;
         private System.Windows.Forms.TextBox teamBcharacter_2_infobox;
         private System.Windows.Forms.TextBox teamBcharacter_3_infobox;
-        private System.Windows.Forms.Button save_button;
     }
 }

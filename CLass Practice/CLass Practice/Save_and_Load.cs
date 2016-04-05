@@ -39,7 +39,7 @@ namespace CLass_Practice
             }
             else
             {
-                FileStream LoadFile = File.OpenRead(@"..\..\SavedTeamFiles\Empty");
+                FileStream LoadFile = File.OpenRead(@"..\..\SavedTeamFiles\Empty.XML");
                 XmlSerializer bf = new XmlSerializer(typeof (T));
                 MalleableVar = (T)bf.Deserialize(LoadFile);
                 LoadFile.Close();
