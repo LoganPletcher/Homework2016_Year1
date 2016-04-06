@@ -346,6 +346,7 @@ public class Archer : Unit
         enemy.Health -= this.Attack;
         TB.Text += (this.Name + " dealt " + this.Attack + " ranged damage to " + enemy.Name + ".\r\n");
         enemy.Stunned = 2;
+        TB.Text += (this.Name + " stunned " + enemy.Name + " for 2 rounds.\r\n");
         TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
 
