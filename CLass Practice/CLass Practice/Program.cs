@@ -11,7 +11,7 @@ namespace CLass_Practice
     class Program
     {
 
-        enum PlayerStates
+        enum PlayerStates   //A enum created for holding Enums that will be used as states in a Finite_State_Machine
         {
             init,
             Prebattle,
@@ -20,16 +20,16 @@ namespace CLass_Practice
             victory,
         }
 
-        static bool init(Finite_State_Machine FSM)
+        static bool init(Finite_State_Machine FSM)      //A bool function that takes a Finite_State_Machine and represents the init state
         {
-            Save_and_Load<Party> sl = new Save_and_Load<Party>();
-            FSM.ChangeStates("init->Prebattle");
-            FSM.info();
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            if (Convert.ToString(FSM.CurrentState) == Convert.ToString(PlayerStates.Prebattle))
-            { Prebattle(FSM, sl); }
-            return false;
+            Save_and_Load<Party> sl = new Save_and_Load<Party>();   //Creates a Save_and_Load that uses Partys called sl
+            FSM.ChangeStates("init->Prebattle");        //Changes the current state from init to Prebattle
+            FSM.info();                                 //Runs the info function of FSM
+            Application.EnableVisualStyles();                       //Allows window forms to run.
+            Application.SetCompatibleTextRenderingDefault(false);   //^
+            if (Convert.ToString(FSM.CurrentState) == Convert.ToString(PlayerStates.Prebattle))     //Checks the current state of FSM to see if it is in the Prebattle state.
+            { Prebattle(FSM, sl); }     //runs the Prebattle function, passing in the FSM Finite_State_Machine and the sl Save_and_Load<Part>
+            return false;       //if the return has been reached then something went wrong and the function returns a false.
         }
 
         static bool Prebattle(Finite_State_Machine FSM, Save_and_Load<Party> sl)
@@ -154,27 +154,27 @@ namespace CLass_Practice
         }
 
         [STAThread]
-        static void Main(string[] args)
+        static void Main(string[] args) //The function the program starts in
         {
-            Finite_State_Machine FSM = new Finite_State_Machine(PlayerStates.init);
-            FSM.AddState(PlayerStates.init);
-            FSM.AddState(PlayerStates.Prebattle);
-            FSM.AddState(PlayerStates.teamAturn);
-            FSM.AddState(PlayerStates.teamBturn);
-            FSM.AddState(PlayerStates.victory);
+            Finite_State_Machine FSM = new Finite_State_Machine(PlayerStates.init); //A Finite_State_Machine called FSM is made with the intial state of init
+            FSM.AddState(PlayerStates.init);                                        //The init state is added to FSM
+            FSM.AddState(PlayerStates.Prebattle);                                   //The Prebattle state is added to FSM
+            FSM.AddState(PlayerStates.teamAturn);                                   //The teamAturn state is added to FSM
+            FSM.AddState(PlayerStates.teamBturn);                                   //The teamBturn state is added to FSM
+            FSM.AddState(PlayerStates.victory);                                     //The victory state is added to FSM
 
-            FSM.AddTransition(PlayerStates.init, PlayerStates.Prebattle);
-            FSM.AddTransition(PlayerStates.Prebattle, PlayerStates.teamAturn);
-            FSM.AddTransition(PlayerStates.teamAturn, PlayerStates.teamBturn);
-            FSM.AddTransition(PlayerStates.teamBturn, PlayerStates.teamAturn);
-            FSM.AddTransition(PlayerStates.teamAturn, PlayerStates.victory);
-            FSM.AddTransition(PlayerStates.teamBturn, PlayerStates.victory);
-            FSM.AddTransition(PlayerStates.victory, PlayerStates.Prebattle);
-            FSM.info();
+            FSM.AddTransition(PlayerStates.init, PlayerStates.Prebattle);           //The transition from init to Prebattle is added to FSM
+            FSM.AddTransition(PlayerStates.Prebattle, PlayerStates.teamAturn);      //The transition from Prebattle to teamAturn is added to FSM
+            FSM.AddTransition(PlayerStates.teamAturn, PlayerStates.teamBturn);      //The transition from teamAturn to teamBturn is added to FSM
+            FSM.AddTransition(PlayerStates.teamBturn, PlayerStates.teamAturn);      //The transition from teamBturn to teamAturn is added to FSM
+            FSM.AddTransition(PlayerStates.teamAturn, PlayerStates.victory);        //The transition from teamAturn to victory is added to FSM
+            FSM.AddTransition(PlayerStates.teamBturn, PlayerStates.victory);        //The transition from teamBturn to victory is added to FSM
+            FSM.AddTransition(PlayerStates.victory, PlayerStates.Prebattle);        //The transition from victory to Prebattle is added to FSM
+            FSM.info();                                                             //Runs the info function of FSM
 
-            init(FSM);
+            init(FSM);                                                          //Runs the init function, passing in the FSM Finite_State_Machine
 
-            Console.ReadLine();
+            Console.ReadLine();                                         //Allows the command console to print text written to the command console
         }
     }
 
