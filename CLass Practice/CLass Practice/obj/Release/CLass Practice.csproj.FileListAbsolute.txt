@@ -1,0 +1,12 @@
+C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\bin\Release\CLass Practice.exe.config
+C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\bin\Release\CLass Practice.exe
+C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\bin\Release\CLass Practice.pdb
+C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\obj\Release\CLass Practice.csprojResolveAssemblyReference.cache
+C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\obj\Release\CLass_Practice.BattleScene.resources
+C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\obj\Release\CLass_Practice.LoadingScene.resources
+C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\obj\Release\CLass_Practice.Properties.Resources.resources
+C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\obj\Release\CLass_Practice.TeamBbattlescene.resources
+C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\obj\Release\CLass_Practice.VictoryWindow.resources
+C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\obj\Release\CLass Practice.csproj.GenerateResource.Cache
+C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\obj\Release\CLass Practice.exe
+C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\obj\Release\CLass Practice.pdb

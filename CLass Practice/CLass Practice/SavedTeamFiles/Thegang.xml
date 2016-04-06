@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<Party xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Members>
+    <Unit xsi:type="Paladin">
+      <rng />
+      <Name>Character: 0</Name>
+      <Attack>8</Attack>
+      <DamageOverTime>0</DamageOverTime>
+      <MaxHealth>32</MaxHealth>
+      <Health>32</Health>
+      <Stunned>0</Stunned>
+      <CharacterClass>5</CharacterClass>
+      <Level>2</Level>
+      <ExperiencePoints>0</ExperiencePoints>
+      <ExperiencetoLevelUp>200</ExperiencetoLevelUp>
+    </Unit>
+    <Unit xsi:type="Fighter">
+      <rng />
+      <Name>Character: 1</Name>
+      <Attack>8</Attack>
+      <DamageOverTime>0</DamageOverTime>
+      <MaxHealth>32</MaxHealth>
+      <Health>32</Health>
+      <Stunned>0</Stunned>
+      <CharacterClass>4</CharacterClass>
+      <Level>2</Level>
+      <ExperiencePoints>0</ExperiencePoints>
+      <ExperiencetoLevelUp>200</ExperiencetoLevelUp>
+    </Unit>
+    <Unit xsi:type="Paladin">
+      <rng />
+      <Name>Character: 2</Name>
+      <Attack>8</Attack>
+      <DamageOverTime>0</DamageOverTime>
+      <MaxHealth>32</MaxHealth>
+      <Health>32</Health>
+      <Stunned>0</Stunned>
+      <CharacterClass>5</CharacterClass>
+      <Level>2</Level>
+      <ExperiencePoints>0</ExperiencePoints>
+      <ExperiencetoLevelUp>200</ExperiencetoLevelUp>
+    </Unit>
+  </Members>
+</Party>

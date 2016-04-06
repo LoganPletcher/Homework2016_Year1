@@ -299,7 +299,6 @@ namespace CLass_Practice
                 teamAcharacter_3.BackColor = Color.Transparent;
                 SelectedUnit = m_TB[0];
             }
-            Console.WriteLine(this.Height);
         }
 
         private void teamBcharacter_2_Click(object sender, EventArgs e)
@@ -342,8 +341,6 @@ namespace CLass_Practice
                 teamBcharacter_3.BackColor = Color.Transparent;
                 SelectedUnit = m_TA[0];
             }
-            Console.WriteLine(this.Height);
-            Console.WriteLine(this.Width);
         }
 
         private void teamAcharacter_2_Click(object sender, EventArgs e)

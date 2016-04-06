@@ -279,7 +279,7 @@ public class Black_Mage : Unit
 
     public override void Ability2(Unit enemy, RichTextBox TB)
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < (3 * this.Level); i++)
         {
             int damage = rng.Next(1, 3);
             enemy.Health -= damage;
