@@ -52,6 +52,7 @@ namespace CLass_Practice
         private void restartButton_Click(object sender, EventArgs e)
         {
             fsm.ChangeStates("victory->Prebattle");
+            fsm.info();
             this.Close();
         }
 

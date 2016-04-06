@@ -87,12 +87,14 @@ namespace CLass_Practice
                         FSM.ChangeStates("teamAturn->victory");
                     if (Convert.ToString(FSM.CurrentState) == Convert.ToString(PlayerStates.victory))
                     {
+                        FSM.info();
                         victory(FSM, sl, teamA, teamB, true);
                     }
                     if (teamA.Members[0].Health <= 0 && teamA.Members[1].Health <= 0 && teamA.Members[2].Health <= 0)
                         FSM.ChangeStates("teamBturn->victory");
                     if (Convert.ToString(FSM.CurrentState) == Convert.ToString(PlayerStates.victory))
                     {
+                        FSM.info();
                         victory(FSM, sl, teamA, teamB, false);
                     }
                 }
@@ -128,6 +130,7 @@ namespace CLass_Practice
                         FSM.ChangeStates("teamBturn->victory");
                     if (Convert.ToString(FSM.CurrentState) == Convert.ToString(PlayerStates.victory))
                     {
+                        FSM.info();
                         victory(FSM, sl, teamA, teamB, false);
                     }
                 }
