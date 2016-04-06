@@ -299,7 +299,6 @@ public class Black_Mage : Unit
     {
         base.LevelingUp();
         this.MaxHealth += 5;
-        this.Health += 5;
         this.Attack += 1;
     }
 }
@@ -337,7 +336,7 @@ public class Archer : Unit
         for (int i = 0; i < 2; i++)
         {
             enemy.Health -= this.Attack + 2;
-            TB.Text += (this.Name + " dealt " + (this.Attack + 3) + " ranged damage to " + enemy.Name + ".\r\n");
+            TB.Text += (this.Name + " dealt " + (this.Attack + 2) + " ranged damage to " + enemy.Name + ".\r\n");
         }
         TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
@@ -360,7 +359,7 @@ public class Archer : Unit
     public override void LevelingUp()
     {
         base.LevelingUp();
-        this.Health += 6;
+        this.MaxHealth += 6;
         this.Attack += 2;
     }
 }
@@ -397,7 +396,9 @@ public class Blue_Mage : Unit
     public override void Ability1(Unit enemy, RichTextBox TB)
     {
         enemy.DamageOverTime = 2;
+        TB.Text += (this.Name + " poisoned " + enemy.Name + " for 2 rounds with magic.\r\n");
         enemy.Stunned = 2;
+        TB.Text += (this.Name + " stunned " + enemy.Name + " for 2 rounds with magic.\r\n");
         TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
 
@@ -406,6 +407,7 @@ public class Blue_Mage : Unit
         enemy.Health -= (this.Attack + 2);
         TB.Text += (this.Name + " dealt " + (this.Attack + 2) + " magic damage to " + enemy.Name + ".\r\n");
         enemy.Stunned = 4;
+        TB.Text += (this.Name + " stunned " + enemy.Name + " for 4 rounds with magic.\r\n");
         TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
 
@@ -414,13 +416,14 @@ public class Blue_Mage : Unit
         enemy.Health -= this.Attack;
         TB.Text += (this.Name + " dealt " + this.Attack + " magic damage to " + enemy.Name + ".\r\n");
         enemy.DamageOverTime = 4;
+        TB.Text += (this.Name + " poisoned " + enemy.Name + " for 4 rounds with magic.\r\n");
         TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
 
     public override void LevelingUp()
     {
         base.LevelingUp();
-        this.Health += 5;
+        this.MaxHealth += 5;
         this.Attack += 1;
     }
 }
@@ -465,6 +468,7 @@ public class Fighter : Unit
         enemy.Health -= (this.Attack + 2);
         TB.Text += (this.Name + " dealt " + (this.Attack + 2) + " melee damage to " + enemy.Name + ".\r\n");
         enemy.DamageOverTime = 2;
+        TB.Text += (this.Name + " bloodied " + enemy.Name + " for 2 rounds.\r\n");
         TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
 
@@ -478,7 +482,7 @@ public class Fighter : Unit
     public override void LevelingUp()
     {
         base.LevelingUp();
-        this.Health += 7;
+        this.MaxHealth += 7;
         this.Attack += 2;
     }
 }
@@ -516,6 +520,7 @@ public class Paladin : Unit
         enemy.Health -= (this.Attack + 10);
         TB.Text += (this.Name + " dealt " + (this.Attack + 10) + " melee damage to " + enemy.Name + ".\r\n");
         enemy.Stunned = 0;
+        TB.Text += (this.Name + " cured " + enemy.Name + " of being stunned.\r\n");
         TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
 
@@ -524,6 +529,7 @@ public class Paladin : Unit
         enemy.Health -= (this.Attack + 10);
         TB.Text += (this.Name + " dealt " + (this.Attack + 10) + " melee damage to " + enemy.Name + ".\r\n");
         enemy.DamageOverTime = 0;
+        TB.Text += (this.Name + " cured " + enemy.Name + " of harmful side effects.\r\n");
         TB.SaveFile(@"..\..\Resources\BattleEvents.rtf");
     }
 
@@ -537,7 +543,7 @@ public class Paladin : Unit
     public override void LevelingUp()
     {
         base.LevelingUp();
-        this.Health += 7;
+        this.MaxHealth += 7;
         this.Attack += 2;
     }
 }
@@ -601,7 +607,7 @@ public class White_Mage : Unit
     public override void LevelingUp()
     {
         base.LevelingUp();
-        this.Health += 5;
+        this.MaxHealth += 5;
         this.Attack += 1;
     }
 }

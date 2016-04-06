@@ -71,8 +71,18 @@ namespace CLass_Practice
                     FirstUse = false;
                 if (teamA.Members[i].Health > 0)
                 {
-                    BattleScene BS = new BattleScene(teamA, teamB, i, FirstUse);
-                    Application.Run(BS);
+                    if (teamA.Members[i].Stunned <= 0)
+                    {
+                        BattleScene BS = new BattleScene(teamA, teamB, i, FirstUse);
+                        Application.Run(BS);
+                    }
+                    else
+                        teamA.Members[i].Stunned--;
+                    if(teamA.Members[i].DamageOverTime > 0)
+                    {
+                        teamA.Members[i].Health -= teamA.Members[i].Level;
+                        teamA.Members[i].DamageOverTime--;
+                    }
                     if (teamB.Members[0].Health <= 0 && teamB.Members[1].Health <= 0 && teamB.Members[2].Health <= 0)
                         FSM.ChangeStates("teamAturn->victory");
                     if (Convert.ToString(FSM.CurrentState) == Convert.ToString(PlayerStates.victory))
@@ -96,8 +106,18 @@ namespace CLass_Practice
             {
                 if (teamB.Members[i].Health > 0)
                 {
-                    TeamBbattlescene TBbs = new TeamBbattlescene(teamA, teamB, i);
-                    Application.Run(TBbs);
+                    if (teamB.Members[i].Stunned <= 0)
+                    {
+                        TeamBbattlescene TBbs = new TeamBbattlescene(teamA, teamB, i);
+                        Application.Run(TBbs);
+                    }
+                    else
+                        teamB.Members[i].Stunned--;
+                    if (teamB.Members[i].DamageOverTime > 0)
+                    {
+                        teamB.Members[i].Health -= teamB.Members[i].Level;
+                        teamB.Members[i].DamageOverTime--;
+                    }
                     if (teamA.Members[0].Health <= 0 && teamA.Members[1].Health <= 0 && teamA.Members[2].Health <= 0)
                         FSM.ChangeStates("teamBturn->victory");
                     if (Convert.ToString(FSM.CurrentState) == Convert.ToString(PlayerStates.victory))
