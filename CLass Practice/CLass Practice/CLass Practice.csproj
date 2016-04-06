@@ -73,6 +73,12 @@
     <Compile Include="TeamBbattlescene.Designer.cs">
       <DependentUpon>TeamBbattlescene.cs</DependentUpon>
     </Compile>
+    <Compile Include="VictoryWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VictoryWindow.Designer.cs">
+      <DependentUpon>VictoryWindow.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -91,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TeamBbattlescene.resx">
       <DependentUpon>TeamBbattlescene.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VictoryWindow.resx">
+      <DependentUpon>VictoryWindow.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

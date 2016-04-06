@@ -37,8 +37,6 @@ namespace CLass_Practice
             bool TeamABuilt = false;
             Party partyA = new Party();
             Party partyB = new Party();
-            // Party teamA = new Party();
-            //Party teamB = new Party();
             Application.Run(new LoadingScene(partyA));
 
             TeamABuilt = (partyA.Members.Count >= 3) ? true : false;
@@ -75,6 +73,12 @@ namespace CLass_Practice
                 {
                     BattleScene BS = new BattleScene(teamA, teamB, i, FirstUse);
                     Application.Run(BS);
+                    if (teamB.Members[0].Health <= 0 && teamB.Members[1].Health <= 0 && teamB.Members[2].Health <= 0)
+                        FSM.ChangeStates("teamAturn->victory");
+                    if (Convert.ToString(FSM.CurrentState) == Convert.ToString(PlayerStates.victory))
+                    {
+                        victory(FSM, sl, teamA, teamB, true);
+                    }
                 }
             }
             FSM.ChangeStates("teamAturn->teamBturn");
@@ -94,6 +98,12 @@ namespace CLass_Practice
                 {
                     TeamBbattlescene TBbs = new TeamBbattlescene(teamA, teamB, i);
                     Application.Run(TBbs);
+                    if (teamA.Members[0].Health <= 0 && teamA.Members[1].Health <= 0 && teamA.Members[2].Health <= 0)
+                        FSM.ChangeStates("teamBturn->victory");
+                    if (Convert.ToString(FSM.CurrentState) == Convert.ToString(PlayerStates.victory))
+                    {
+                        victory(FSM, sl, teamA, teamB, false);
+                    }
                 }
             }
             FSM.ChangeStates("teamBturn->teamAturn");
@@ -105,8 +115,12 @@ namespace CLass_Practice
             return false;
         }
 
-        static bool End()
+        static bool victory(Finite_State_Machine FSM, Save_and_Load<Party> sl, Party teamA, Party teamB, bool teamAwin)
         {
+            VictoryWindow vw = new VictoryWindow(FSM, teamA, teamB, teamAwin);
+            Application.Run(vw);
+            if (Convert.ToString(FSM.CurrentState) == Convert.ToString(PlayerStates.Prebattle))
+                Prebattle(FSM, sl);
             return false;
         }
 
@@ -114,7 +128,6 @@ namespace CLass_Practice
         static void Main(string[] args)
         {
             Finite_State_Machine FSM = new Finite_State_Machine(PlayerStates.init);
-            //Combat battle = new Combat();
             FSM.AddState(PlayerStates.init);
             FSM.AddState(PlayerStates.Prebattle);
             FSM.AddState(PlayerStates.teamAturn);
@@ -127,6 +140,7 @@ namespace CLass_Practice
             FSM.AddTransition(PlayerStates.teamBturn, PlayerStates.teamAturn);
             FSM.AddTransition(PlayerStates.teamAturn, PlayerStates.victory);
             FSM.AddTransition(PlayerStates.teamBturn, PlayerStates.victory);
+            FSM.AddTransition(PlayerStates.victory, PlayerStates.Prebattle);
             FSM.info();
 
             init(FSM);

@@ -215,22 +215,22 @@ public class Party
             switch (randomClass)
             {
                 case 1:                    
-                    _members.Add(new Black_Mage(name + i.ToString(), 1));
+                    _members.Add(new Black_Mage(name + i.ToString(), level));
                     break;
                 case 2:
-                    _members.Add(new Archer(name + i.ToString(), 1));
+                    _members.Add(new Archer(name + i.ToString(), level));
                     break;
                 case 3:
-                    _members.Add(new Blue_Mage(name + i.ToString(), 1));
+                    _members.Add(new Blue_Mage(name + i.ToString(), level));
                     break;
                 case 4:
-                    _members.Add(new Fighter(name + i.ToString(), 1));
+                    _members.Add(new Fighter(name + i.ToString(), level));
                     break;
                 case 5:
-                    _members.Add(new Paladin(name + i.ToString(), 1));
+                    _members.Add(new Paladin(name + i.ToString(), level));
                     break;
                 case 6:
-                    _members.Add(new White_Mage(name + i.ToString(), 1));
+                    _members.Add(new White_Mage(name + i.ToString(), level));
                     break;
                 default:
                     break;

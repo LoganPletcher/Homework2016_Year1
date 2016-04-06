@@ -41,6 +41,7 @@
             this.teamBcharacter_3 = new System.Windows.Forms.PictureBox();
             this.teamBcharacter_2 = new System.Windows.Forms.PictureBox();
             this.teamBcharacter_1 = new System.Windows.Forms.PictureBox();
+            this.ContinueButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.teamAcharacter_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamAcharacter_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teamAcharacter_1)).BeginInit();
@@ -184,6 +185,21 @@
             this.teamBcharacter_1.TabIndex = 30;
             this.teamBcharacter_1.TabStop = false;
             // 
+            // ContinueButton
+            // 
+            this.ContinueButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.ContinueButton.AutoSize = true;
+            this.ContinueButton.BackgroundImage = global::CLass_Practice.Properties.Resources.fire_49;
+            this.ContinueButton.Font = new System.Drawing.Font("Algerian", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ContinueButton.ForeColor = System.Drawing.Color.Gold;
+            this.ContinueButton.Location = new System.Drawing.Point(868, 844);
+            this.ContinueButton.Name = "ContinueButton";
+            this.ContinueButton.Size = new System.Drawing.Size(114, 82);
+            this.ContinueButton.TabIndex = 36;
+            this.ContinueButton.Text = "Continue";
+            this.ContinueButton.UseVisualStyleBackColor = true;
+            this.ContinueButton.Click += new System.EventHandler(this.Continue);
+            // 
             // TeamBbattlescene
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,6 +207,7 @@
             this.BackgroundImage = global::CLass_Practice.Properties.Resources.Battleback_mountain_a;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1814, 932);
+            this.Controls.Add(this.ContinueButton);
             this.Controls.Add(this.teamBcharacter_3_infobox);
             this.Controls.Add(this.teamBcharacter_2_infobox);
             this.Controls.Add(this.teamBcharacter_1_infobox);
@@ -233,5 +250,6 @@
         private System.Windows.Forms.PictureBox teamBcharacter_3;
         private System.Windows.Forms.PictureBox teamBcharacter_2;
         private System.Windows.Forms.PictureBox teamBcharacter_1;
+        private System.Windows.Forms.Button ContinueButton;
     }
 }

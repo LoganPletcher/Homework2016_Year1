@@ -35,8 +35,10 @@
             // 
             // Yes
             // 
+            this.Yes.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Yes.AutoSize = true;
             this.Yes.BackColor = System.Drawing.Color.Transparent;
-            this.Yes.BackgroundImage = global::CLass_Practice.Properties.Resources.fire_49;
+            this.Yes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Yes.Font = new System.Drawing.Font("Algerian", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Yes.ForeColor = System.Drawing.Color.Yellow;
             this.Yes.Location = new System.Drawing.Point(480, 248);
@@ -49,8 +51,10 @@
             // 
             // No
             // 
+            this.No.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.No.AutoSize = true;
             this.No.BackColor = System.Drawing.Color.Transparent;
-            this.No.BackgroundImage = global::CLass_Practice.Properties.Resources.fire_49;
+            this.No.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.No.Font = new System.Drawing.Font("Algerian", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.No.ForeColor = System.Drawing.Color.Yellow;
             this.No.Location = new System.Drawing.Point(480, 301);
@@ -63,6 +67,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox1.BackColor = System.Drawing.Color.Red;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Andalus", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -18,3 +18,18 @@ D:\Users\Logan\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice
 D:\Users\Logan\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\obj\Debug\CLass Practice.csproj.GenerateResource.Cache
 D:\Users\Logan\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\obj\Debug\CLass Practice.exe
 D:\Users\Logan\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\obj\Debug\CLass_Practice.TeamBbattlescene.resources
+C:\Users\logan.pletcher\Documents\Visual Studio 2015\Projects\CLass Practice\CLass Practice\obj\Debug\CLass Practice.csprojResolveAssemblyReference.cache
+C:\Users\logan.pletcher\Documents\Visual Studio 2015\Projects\CLass Practice\CLass Practice\obj\Debug\CLass_Practice.TeamBbattlescene.resources
+C:\Users\logan.pletcher\Documents\Visual Studio 2015\Projects\CLass Practice\CLass Practice\obj\Debug\CLass_Practice.VictoryWindow.resources
+C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\bin\Debug\CLass Practice.exe.config
+C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\obj\Debug\CLass Practice.exe
+C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\obj\Debug\CLass Practice.pdb
+C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\bin\Debug\CLass Practice.exe
+C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\bin\Debug\CLass Practice.pdb
+C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\obj\Debug\CLass Practice.csprojResolveAssemblyReference.cache
+C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\obj\Debug\CLass_Practice.BattleScene.resources
+C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\obj\Debug\CLass_Practice.LoadingScene.resources
+C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\obj\Debug\CLass_Practice.Properties.Resources.resources
+C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\obj\Debug\CLass_Practice.TeamBbattlescene.resources
+C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\obj\Debug\CLass_Practice.VictoryWindow.resources
+C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\obj\Debug\CLass Practice.csproj.GenerateResource.Cache

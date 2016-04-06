@@ -19,33 +19,37 @@ namespace CLass_Practice
         public Unit CurrentUnit = new Unit();
         public Party m_TA = new Party();
         public Party m_TB = new Party();
+        List<PictureBox> sideAimages = new List<PictureBox>();
+        List<PictureBox> sideBimages = new List<PictureBox>();
+        List<int> sideBimageLefts = new List<int>();
+        List<TextBox> sideAinfoboxes = new List<TextBox>();
+        List<TextBox> sideBinfoboxes = new List<TextBox>();
+        List<int> sideBtextLefts = new List<int>();
 
         public TeamBbattlescene(Party team1, Party team2, int CU)
         {
             m_TA = team1;
             m_TB = team2;
             InitializeComponent();
-            List<PictureBox> sideAimages = new List<PictureBox>();
+            
             sideAimages.Add(teamAcharacter_1);
             sideAimages.Add(teamAcharacter_2);
             sideAimages.Add(teamAcharacter_3);
-            List<PictureBox> sideBimages = new List<PictureBox>();
             sideBimages.Add(teamBcharacter_1);
             sideBimages.Add(teamBcharacter_2);
             sideBimages.Add(teamBcharacter_3);
-            List<int> sideBimageLefts = new List<int>();
+            
             sideBimageLefts.Add(teamBcharacter_1.Left);
             sideBimageLefts.Add(teamBcharacter_2.Left);
             sideBimageLefts.Add(teamBcharacter_3.Left);
-            List<TextBox> sideAinfoboxes = new List<TextBox>();
+            
             sideAinfoboxes.Add(teamAcharacter_1_infobox);
             sideAinfoboxes.Add(teamAcharacter_2_infobox);
             sideAinfoboxes.Add(teamAcharacter_3_infobox);
-            List<TextBox> sideBinfoboxes = new List<TextBox>();
             sideBinfoboxes.Add(teamBcharacter_1_infobox);
             sideBinfoboxes.Add(teamBcharacter_2_infobox);
             sideBinfoboxes.Add(teamBcharacter_3_infobox);
-            List<int> sideBtextLefts = new List<int>();
+            
             sideBtextLefts.Add(teamBcharacter_1_infobox.Left);
             sideBtextLefts.Add(teamBcharacter_2_infobox.Left);
             sideBtextLefts.Add(teamBcharacter_3_infobox.Left);
@@ -199,6 +203,8 @@ namespace CLass_Practice
         {
             int SU = rng.Next(0, 3);
             int Ability = rng.Next(0,3);
+            if (BattleEvents.Lines.Count() >= 6)
+                BattleEvents.Clear();
             if (CurrentUnit.CharacterClass != 6)
             {
                 while (m_TA.Members[SU].Health < 0)
@@ -221,6 +227,23 @@ namespace CLass_Practice
                 if (Ability == 2)
                     CurrentUnit.Ability3(m_TB.Members[SU], BattleEvents);
             }
+            for (int i = 0; i < 3; i++)
+            {
+                sideAinfoboxes[i].Clear();
+                sideAinfoboxes[i].Text += m_TA.Members[i].Name + " Level: ";
+                sideAinfoboxes[i].Text += m_TA.Members[i].Level + " Class: ";
+                sideAinfoboxes[i].Text += Convert.ToString(m_TA.Members[i].GetType());
+                sideAinfoboxes[i].Text += "\r\nHP: " + m_TA.Members[i].Health + "/" + m_TA.Members[i].MaxHealth;
+                sideBinfoboxes[i].Clear();
+                sideBinfoboxes[i].Text += m_TB.Members[i].Name + " Level: ";
+                sideBinfoboxes[i].Text += m_TB.Members[i].Level + " Class: ";
+                sideBinfoboxes[i].Text += Convert.ToString(m_TB.Members[i].GetType());
+                sideBinfoboxes[i].Text += "\r\nHP: " + m_TB.Members[i].Health + "/" + m_TB.Members[i].MaxHealth;
+            }
+        }
+
+        private void Continue(object sender, EventArgs e)
+        {
             this.Close();
         }
     }
