@@ -10,3 +10,15 @@ C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass
 C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\obj\Release\CLass Practice.csproj.GenerateResource.Cache
 C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\obj\Release\CLass Practice.exe
 C:\Users\logan.pletcher\Documents\GitHub\Homework2016_Year1\CLass Practice\CLass Practice\obj\Release\CLass Practice.pdb
+C:\Users\logan.pletcher\Desktop\CLass Practice.exe.config
+C:\Users\logan.pletcher\Desktop\CLass Practice.exe
+C:\Users\logan.pletcher\Desktop\CLass Practice.pdb
+C:\Users\logan.pletcher\Desktop\New folder\CLass Practice.exe.config
+C:\Users\logan.pletcher\Desktop\New folder\CLass Practice.exe
+C:\Users\logan.pletcher\Desktop\New folder\CLass Practice.pdb
+C:\Users\logan.pletcher\Desktop\New folder\New folder\CLass Practice.exe.config
+C:\Users\logan.pletcher\Desktop\New folder\New folder\CLass Practice.exe
+C:\Users\logan.pletcher\Desktop\New folder\New folder\CLass Practice.pdb
+C:\Users\logan.pletcher\Desktop\New folder\Actual Game\butt\CLass Practice.exe.config
+C:\Users\logan.pletcher\Desktop\New folder\Actual Game\butt\CLass Practice.exe
+C:\Users\logan.pletcher\Desktop\New folder\Actual Game\butt\CLass Practice.pdb

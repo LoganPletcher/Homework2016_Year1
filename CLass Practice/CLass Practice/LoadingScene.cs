@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace CLass_Practice
 {
     public partial class LoadingScene : Form
     {
-        
+        //SoundPlayer loadingSceneSong
+
         Party PlayerTeam = new Party();
 
         public LoadingScene(Party PT)
